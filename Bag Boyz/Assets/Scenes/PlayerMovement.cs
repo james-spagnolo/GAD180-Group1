@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Animator anim; 
+    public Animator anim;
+    public Rigidbody2D rb;
+
     public float speed = 0.5f; //can adjust Player Speed in Unity inspector
     public bool eightDirections = false; //can turn on and off eightDirections in Unity inspector
     private Vector2 movement;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = this.GetComponent<Animator>();
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown("1"))
+        //Toggle 4D / 8D Movement by Pressing 1
+        if (Input.GetKey("1"))
         {
             print("Toggled 4D/8D");
             eightDirections = !eightDirections;
@@ -175,13 +180,19 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Move the player in the direction of input by 'speed' units per second.
-            transform.Translate(movement * speed * Time.deltaTime);
+            Move();
+
+            //transform.Translate(movement * speed * Time.deltaTime);
         }
 
 
     }
-        
 
+    private void Move()
+    {
+        rb.velocity = new Vector2(movement.x * speed, movement.y * speed);
+    }
+    
     void TurnOffAnimations()
     {
         //Stop all animations from being active
