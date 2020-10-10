@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerCollection : MonoBehaviour
 {
+
+    private Inventory playerInventory;
+    
     private int itemsLeft = 5;
     bool nearItem = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerInventory = new Inventory();
     }
 
     // Update is called once per frame
@@ -32,6 +35,7 @@ public class PlayerCollection : MonoBehaviour
     {
         if (collision.tag == "Grocery")
         {
+
             nearItem = true;
         }
     }
