@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Cherry
   m_EditorClassIdentifier: 
   ItemName: Cherry
-  Icon: {fileID: 21300000, guid: 974c9628149eb2a40aaab8b8c8c0cd42, type: 3}
+  Icon: {fileID: 21300000, guid: cb0565e3e84a852469f6522f395b0c1f, type: 3}

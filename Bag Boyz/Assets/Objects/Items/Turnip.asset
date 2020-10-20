@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Turnip
   m_EditorClassIdentifier: 
   ItemName: Turnip
-  Icon: {fileID: 21300000, guid: 6098e3fd90772f74b9cceaee03d6ee2f, type: 3}
+  Icon: {fileID: 21300000, guid: b4b6478e5f4b0064fa1473fb1b5cef1e, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pineapple
   m_EditorClassIdentifier: 
   ItemName: Pineapple
-  Icon: {fileID: 21300000, guid: 210df8ff51d111849a8aacacfbc20cfe, type: 3}
+  Icon: {fileID: 21300000, guid: 3ab87f95c0565ef42b7ff8b2f12fb0f0, type: 3}
