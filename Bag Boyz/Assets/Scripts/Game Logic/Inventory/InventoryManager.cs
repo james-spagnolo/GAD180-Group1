@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] List<Item> items;
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
+    [SerializeField] GameLogic gameLogic;
 
     private void OnValidate()
     {
@@ -38,6 +39,7 @@ public class InventoryManager : MonoBehaviour
             return false;
 
         items.Add(item);
+        gameLogic.CollectedItem();
         RefreshUI();
         return true;
     }
