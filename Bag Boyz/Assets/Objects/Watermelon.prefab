@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6721444900281148599}
   - component: {fileID: 3397314620973575272}
   - component: {fileID: 183008398032787985}
+  - component: {fileID: 946935454}
   m_Layer: 10
   m_Name: InteractionCircle
   m_TagString: Untagged
@@ -63,6 +64,18 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: a6690078f2835454080216f6956c5419, type: 2}
   inventory: {fileID: 0}
   interactKey: 101
+--- !u!122 &946935454
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061867727159232478}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278241986
+  m_Size: 1
 --- !u!1 &4608680040139597114
 GameObject:
   m_ObjectHideFlags: 0

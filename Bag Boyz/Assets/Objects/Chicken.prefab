@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 1583112665}
   - component: {fileID: 1583112667}
   - component: {fileID: 1583112666}
+  - component: {fileID: 808819428}
   m_Layer: 10
   m_Name: InteractionCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1583112665
 Transform:
   m_ObjectHideFlags: 0
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583112664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2170950228163436615}
@@ -63,6 +64,18 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: cbf0c779cf665e14abefa8e7746742d8, type: 2}
   inventory: {fileID: 0}
   interactKey: 101
+--- !u!122 &808819428
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583112664}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278241986
+  m_Size: 1
 --- !u!1 &6379958997227018267
 GameObject:
   m_ObjectHideFlags: 0

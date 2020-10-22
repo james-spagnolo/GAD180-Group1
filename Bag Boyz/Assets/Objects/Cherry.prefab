@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 1446589233681486330}
   - component: {fileID: 1446589233681486308}
   - component: {fileID: 1446589233681486309}
+  - component: {fileID: 1332624288}
   m_Layer: 10
   m_Name: InteractionCircle
   m_TagString: Untagged
@@ -172,3 +173,15 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 2b7da03088a8b494da7cafe551b3b436, type: 2}
   inventory: {fileID: 0}
   interactKey: 101
+--- !u!122 &1332624288
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446589233681486331}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278241986
+  m_Size: 1

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,9 +13,13 @@ public class Interactable : MonoBehaviour
     private bool isInRange;
     private bool isEmpty;
 
-    private void Awake()
+    Behaviour halo;
+    
+
+    private void OnValidate()
     {
-        
+        halo = (Behaviour)GetComponent("Halo");
+        halo.enabled = false;
     }
 
     private void Update()
@@ -27,6 +32,15 @@ public class Interactable : MonoBehaviour
                 isEmpty = true;
             }
         }
+
+        if (isInRange)
+        {
+            halo.enabled = true;
+        }
+        else if (isInRange == false)
+        {
+            halo.enabled = false;
+        }
         
     }
 
@@ -35,7 +49,7 @@ public class Interactable : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
-            Debug.Log("Player now in range");
+            //Debug.Log("Player now in range");
         }
     }
 
@@ -44,7 +58,7 @@ public class Interactable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
-            Debug.Log("Player now NOT in range");
+            //Debug.Log("Player now NOT in range");
         }
     }
 }
