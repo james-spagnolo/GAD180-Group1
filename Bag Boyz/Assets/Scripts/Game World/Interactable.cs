@@ -35,13 +35,20 @@ public class Interactable : MonoBehaviour
 
         if (isInRange)
         {
-            halo.enabled = true;
+            if(!isEmpty)
+            {
+                halo.enabled = true;
+            }
+            else if (isEmpty)
+            {
+                halo.enabled = false;
+            }
         }
         else if (isInRange == false)
         {
             halo.enabled = false;
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
