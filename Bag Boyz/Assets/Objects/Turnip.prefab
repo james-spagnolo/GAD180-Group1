@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8982170268267283149}
   - component: {fileID: 5743487717703123699}
-  - component: {fileID: 7332625125711634988}
+  - component: {fileID: 3571192627679362242}
   m_Layer: 10
   m_Name: Turnip
   m_TagString: Grocery
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 974840356987540870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.04, y: 1.46, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1468846008372582155}
   m_Father: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6098e3fd90772f74b9cceaee03d6ee2f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 705fdcc5b2be8dd4d8bd7e0a6fdd424b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7332625125711634988
+--- !u!61 &3571192627679362242
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,14 +100,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.83, y: 1.85}
+    oldSize: {x: 2.77, y: 2.7}
     newSize: {x: 1.83, y: 1.85}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.83, y: 1.85}
+  m_Size: {x: 2.77, y: 2.7}
   m_EdgeRadius: 0
 --- !u!1 &6468499926630088632
 GameObject:
@@ -127,7 +127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1468846008372582155
 Transform:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.3
+  m_Radius: 2
 --- !u!114 &8665657129226140979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,4 +184,4 @@ Halo:
   m_Color:
     serializedVersion: 2
     rgba: 4278241986
-  m_Size: 1
+  m_Size: 2.4

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5525977364033235316}
   - component: {fileID: 5226079304330703160}
-  - component: {fileID: 8926937007775471784}
+  - component: {fileID: 2142006387684557678}
   m_Layer: 10
   m_Name: Apple
   m_TagString: Grocery
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ad69d03eae669c3458bebf7d8d6eba85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7eaefc3d959fe40439a5a21e401d87d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8926937007775471784
+--- !u!61 &2142006387684557678
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,18 +96,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022174, y: 0.03104353}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.11, y: 1.13}
+    oldSize: {x: 2.77, y: 2.7}
     newSize: {x: 1.11, y: 1.13}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.99469495, y: 1.0324354}
+  m_Size: {x: 2.77, y: 2.7}
   m_EdgeRadius: 0
 --- !u!1 &3050939635729975171
 GameObject:
@@ -157,7 +157,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 2
 --- !u!114 &197644877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,4 +184,4 @@ Halo:
   m_Color:
     serializedVersion: 2
     rgba: 4278255594
-  m_Size: 1
+  m_Size: 2.4

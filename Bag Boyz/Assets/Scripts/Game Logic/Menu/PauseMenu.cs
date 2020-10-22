@@ -9,12 +9,14 @@ public class PauseMenu : MonoBehaviour
     public KeyCode pauseKey;
 
     private GameObject[] pauseObjects;
+    private GameObject[] gameUI;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
+        gameUI = GameObject.FindGameObjectsWithTag("GameUI");
         HidePaused();
     }
 
@@ -66,6 +68,11 @@ public class PauseMenu : MonoBehaviour
         {
             g.SetActive(true);
         }
+
+        foreach (GameObject g in gameUI)
+        {
+            g.SetActive(false);
+        }
     }
 
 
@@ -74,6 +81,11 @@ public class PauseMenu : MonoBehaviour
         foreach (GameObject g in pauseObjects)
         {
             g.SetActive(false);
+        }
+
+        foreach (GameObject g in gameUI)
+        {
+            g.SetActive(true);
         }
     }
 
