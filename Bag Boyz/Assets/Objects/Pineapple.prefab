@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 8912087191304349834}
   m_Layer: 10
   m_Name: InteractionCircle
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1191173674
 Transform:
   m_ObjectHideFlags: 0

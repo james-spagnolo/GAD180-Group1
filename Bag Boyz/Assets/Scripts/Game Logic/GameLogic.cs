@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour
 {
+
+    public GameObject[] groceryObjects;
+
     // Set 5 items in Unity Inspector
     public GameObject itemOne;
     public GameObject itemTwo;
@@ -31,6 +34,10 @@ public class GameLogic : MonoBehaviour
     // Start is called before the first frame update
     void OnValidate()
     {
+        groceryObjects = GameObject.FindGameObjectsWithTag("Interaction");
+
+        DisableItems();
+
         //Find the InteractionCircles attached to the 5 items
         itemOne.transform.GetChild(0).gameObject.SetActive(true);
         itemTwo.transform.GetChild(0).gameObject.SetActive(true);
@@ -44,13 +51,10 @@ public class GameLogic : MonoBehaviour
         itemThreeName = itemThree.name;
         itemFourName = itemFour.name;
         itemFiveName = itemFive.name;
-    }
 
-    private void Start()
-    {
-        //Display Items Needed on Shopping List
         shoppingText.text = itemOneName + "\n" + itemTwoName + "\n" + itemThreeName + "\n" + itemFourName + "\n" + itemFiveName;
     }
+
 
     private void Update()
     {
@@ -86,6 +90,14 @@ public class GameLogic : MonoBehaviour
         {
             //Win State
             Debug.Log("YOU WIN!");
+        }
+    }
+
+    void DisableItems()
+    {
+        foreach (GameObject g in groceryObjects)
+        {
+            g.SetActive(false);
         }
     }
 

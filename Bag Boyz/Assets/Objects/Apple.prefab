@@ -123,11 +123,11 @@ GameObject:
   - component: {fileID: 7593010693799867972}
   m_Layer: 10
   m_Name: InteractionCircle
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8204424736854216914
 Transform:
   m_ObjectHideFlags: 0
@@ -183,5 +183,5 @@ Halo:
   m_Enabled: 0
   m_Color:
     serializedVersion: 2
-    rgba: 4278241986
+    rgba: 4278255594
   m_Size: 1

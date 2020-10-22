@@ -13,17 +13,23 @@ public class Interactable : MonoBehaviour
     private bool isInRange;
     private bool isEmpty;
 
-    Behaviour halo;
+    //Component halo;
     
 
     private void OnValidate()
     {
-        halo = (Behaviour)GetComponent("Halo");
+        Behaviour halo = (Behaviour)GetComponent("Halo");
         halo.enabled = false;
+        //GetComponent<Halo>().enabled = false;
+        //halo = GetComponent("Halo");
+        //halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
+        //halo.enabled = false;
     }
 
     private void Update()
     {
+        Behaviour halo = (Behaviour)GetComponent("Halo");
+
         if (isInRange && Input.GetKeyDown(interactKey))
         {
             if (!isEmpty)
@@ -44,7 +50,7 @@ public class Interactable : MonoBehaviour
                 halo.enabled = false;
             }
         }
-        else if (isInRange == false)
+        else
         {
             halo.enabled = false;
         }
