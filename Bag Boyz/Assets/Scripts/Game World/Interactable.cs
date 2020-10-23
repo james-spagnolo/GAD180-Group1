@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] KeyCode interactKey = KeyCode.E;
     
     private bool isInRange;
-    private bool isEmpty;
+    private bool isCollected;
 
     //Component halo;
     
@@ -32,20 +32,20 @@ public class Interactable : MonoBehaviour
 
         if (isInRange && Input.GetKeyDown(interactKey))
         {
-            if (!isEmpty)
+            if (!isCollected)
             {
                 inventory.AddItem(item);
-                isEmpty = true;
+                isCollected = true;
             }
         }
 
         if (isInRange)
         {
-            if(!isEmpty)
+            if(!isCollected)
             {
                 halo.enabled = true;
             }
-            else if (isEmpty)
+            else if (isCollected)
             {
                 halo.enabled = false;
             }

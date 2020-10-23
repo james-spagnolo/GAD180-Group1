@@ -8,6 +8,8 @@ TagManager:
   - ShowOnPause
   - Interaction
   - GameUI
+  - GameOver
+  - WinScreen
   layers:
   - Default
   - TransparentFX

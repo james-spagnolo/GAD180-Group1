@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ public class GameLogic : MonoBehaviour
 {
 
     public GameObject[] groceryObjects;
+    public GameObject[] gameOverUI;
+    public GameObject[] winScreen;
 
     // Set 5 items in Unity Inspector
     public GameObject itemOne;
@@ -19,7 +22,7 @@ public class GameLogic : MonoBehaviour
     public Text shoppingText;
 
     // Amount in Seconds of timer
-    public float timeLeft = 60.0f;
+    public float timeLeft;
 
     // Items Left to Collect
     private int itemsLeft = 5;
@@ -35,6 +38,8 @@ public class GameLogic : MonoBehaviour
     void OnValidate()
     {
         groceryObjects = GameObject.FindGameObjectsWithTag("Interaction");
+        gameOverUI = GameObject.FindGameObjectsWithTag("GameOver");
+        winScreen = GameObject.FindGameObjectsWithTag("WinScreen");
 
         DisableItems();
 
@@ -52,17 +57,25 @@ public class GameLogic : MonoBehaviour
         itemFourName = itemFour.name;
         itemFiveName = itemFive.name;
 
+        //Display Items needed to the Shopping List
         shoppingText.text = itemOneName + "\n" + itemTwoName + "\n" + itemThreeName + "\n" + itemFourName + "\n" + itemFiveName;
     }
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+        DisableGameOverUI();
+        DisableWinScreen();
+    }
 
     private void Update()
     {
         //Start counting down from timeLeft in seconds
         timeLeft -= Time.deltaTime;
 
+
         //If timeLeft reaches below zero
-        if (timeLeft < 0)
+        if (timeLeft <= 0)
         {
             //Launch GameOver
             GameOver();
@@ -71,9 +84,17 @@ public class GameLogic : MonoBehaviour
 
     private void GameOver()
     {
+        //Pause game
+        Time.timeScale = 0;
+
         //Lose State
-        Debug.Log("YOU LOSE!");
+        foreach (GameObject g in gameOverUI)
+        {
+            g.SetActive(true);
+        }
     }
+
+    
 
     public void CollectedItem()
     {
@@ -81,15 +102,39 @@ public class GameLogic : MonoBehaviour
 
         Debug.Log("Items Left: " + itemsLeft);
 
-        CheckItemsLeft();
+        if(itemsLeft <= 0)
+        {
+            //Launch Win State
+            WinScreen();
+        }
     }
 
-    void CheckItemsLeft()
+    void WinScreen()
     {
-        if (itemsLeft <= 0)
+        //Pause game
+        Time.timeScale = 0;
+
+        //Win State
+        foreach (GameObject g in winScreen)
         {
-            //Win State
-            Debug.Log("YOU WIN!");
+            g.SetActive(true);
+        }
+    }
+
+    void DisableWinScreen()
+    {
+        foreach (GameObject g in winScreen)
+        {
+            g.SetActive(false);
+        }
+    }
+
+    private void DisableGameOverUI()
+    {
+        //Lose State
+        foreach (GameObject g in gameOverUI)
+        {
+            g.SetActive(false);
         }
     }
 
