@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2549859404530032045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6836767, y: 0.90088654, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.41666663, y: 0.42863208, z: 0.4768532}
   m_Children:
   - {fileID: 8204424736854216914}
   m_Father: {fileID: 0}
@@ -170,9 +170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   item: {fileID: 11400000, guid: 817d45221a70e184f85583eaf90f8d35, type: 2}
   inventory: {fileID: 0}
   interactKey: 101
+  interactionTimer: 1
 --- !u!122 &7593010693799867972
 Halo:
   m_ObjectHideFlags: 0

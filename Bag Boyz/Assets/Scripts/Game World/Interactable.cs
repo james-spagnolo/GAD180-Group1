@@ -6,18 +6,24 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
+    public PlayerController player;
+
     [SerializeField] Item item;
     [SerializeField] InventoryManager inventory;
     [SerializeField] KeyCode interactKey = KeyCode.E;
     
     private bool isInRange;
     private bool isCollected;
+    private bool thisInteract = false;
 
-    //Component halo;
+    private float interactionTimer;
+
+    
     
 
     private void OnValidate()
     {
+        interactionTimer = player.interactionTimer;
         Behaviour halo = (Behaviour)GetComponent("Halo");
         halo.enabled = false;
         //GetComponent<Halo>().enabled = false;
@@ -34,8 +40,20 @@ public class Interactable : MonoBehaviour
         {
             if (!isCollected)
             {
-                inventory.AddItem(item);
-                isCollected = true;
+                thisInteract = true;
+            }
+        }
+
+        if (thisInteract)
+        {
+            if(interactionTimer > 0)
+            {
+                interactionTimer -= Time.deltaTime;
+                player.collectingItem = true;
+            }
+            else
+            {
+                PickUpItem();
             }
         }
 
@@ -55,6 +73,14 @@ public class Interactable : MonoBehaviour
             halo.enabled = false;
         }
 
+    }
+
+    private void PickUpItem()
+    {
+        thisInteract = false;
+        player.collectingItem = false;
+        inventory.AddItem(item);
+        isCollected = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -61,9 +61,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   item: {fileID: 11400000, guid: cbf0c779cf665e14abefa8e7746742d8, type: 2}
   inventory: {fileID: 0}
   interactKey: 101
+  interactionTimer: 1
 --- !u!122 &808819428
 Halo:
   m_ObjectHideFlags: 0

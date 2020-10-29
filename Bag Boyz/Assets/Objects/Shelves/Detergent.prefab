@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5320233572012161608
 Transform:
   m_ObjectHideFlags: 0
@@ -73,9 +73,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   item: {fileID: 11400000, guid: d7a26d4a61953bd45970f84451989bea, type: 2}
   inventory: {fileID: 0}
   interactKey: 101
+  interactionTimer: 1
 --- !u!1 &7908238099379177780
 GameObject:
   m_ObjectHideFlags: 0

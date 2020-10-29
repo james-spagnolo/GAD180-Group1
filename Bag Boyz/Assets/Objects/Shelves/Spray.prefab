@@ -73,9 +73,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   item: {fileID: 11400000, guid: dbfa51822c821134987c2542261dcc1f, type: 2}
   inventory: {fileID: 0}
   interactKey: 101
+  interactionTimer: 1
 --- !u!1 &156159177001964423
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +103,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156159177001964423}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.309999, y: -10.22, z: 33.254105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2562520691950958804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.13, y: -0.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.41666663, y: 0.42863208, z: 0.4768532}
   m_Children:
   - {fileID: 2562520692652694394}
   m_Father: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2562520692652694394
 Transform:
   m_ObjectHideFlags: 0
@@ -170,9 +170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   item: {fileID: 11400000, guid: 2c063749d7af3464590fe54a0da7f339, type: 2}
   inventory: {fileID: 0}
   interactKey: 101
+  interactionTimer: 1
 --- !u!122 &8363518740477361588
 Halo:
   m_ObjectHideFlags: 0
