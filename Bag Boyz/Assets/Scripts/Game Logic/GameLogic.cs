@@ -3,20 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameLogic : MonoBehaviour
 {
 
+    public GameObject[] interactionObjects;
     public GameObject[] groceryObjects;
     public GameObject[] gameOverUI;
     public GameObject[] winScreen;
 
+    public List<GameObject> groceryList = new List<GameObject>();
+
+    public GameObject[] shoppingList;
+
+    /*
     // Set 5 items in Unity Inspector
     public GameObject itemOne;
     public GameObject itemTwo;
     public GameObject itemThree;
     public GameObject itemFour;
     public GameObject itemFive;
+    */
+
+    //Randomly Set 5 items
+    public GameObject randomItemOne;
+    public GameObject randomItemTwo;
+    public GameObject randomItemThree;
+    public GameObject randomItemFour;
+    public GameObject randomItemFive;
 
     // Text displayed on Shopping List on UI
     public Text shoppingText;
@@ -27,7 +42,7 @@ public class GameLogic : MonoBehaviour
     // Items Left to Collect
     private int itemsLeft = 5;
 
-    // 5 Items
+    // 5 Item Names (for displaying text to UI)
     private string itemOneName;
     private string itemTwoName;
     private string itemThreeName;
@@ -37,12 +52,15 @@ public class GameLogic : MonoBehaviour
     // Start is called before the first frame update
     void OnValidate()
     {
-        groceryObjects = GameObject.FindGameObjectsWithTag("Interaction");
+        interactionObjects = GameObject.FindGameObjectsWithTag("Interaction");
+        groceryObjects = GameObject.FindGameObjectsWithTag("Grocery");
         gameOverUI = GameObject.FindGameObjectsWithTag("GameOver");
         winScreen = GameObject.FindGameObjectsWithTag("WinScreen");
 
+        //Make sure all items are disabled by default
         DisableItems();
 
+        /*
         //Find the InteractionCircles attached to the 5 items
         itemOne.transform.GetChild(0).gameObject.SetActive(true);
         itemTwo.transform.GetChild(0).gameObject.SetActive(true);
@@ -59,6 +77,7 @@ public class GameLogic : MonoBehaviour
 
         //Display Items needed to the Shopping List
         shoppingText.text = itemOneName + "\n" + itemTwoName + "\n" + itemThreeName + "\n" + itemFourName + "\n" + itemFiveName;
+        */
     }
 
     private void Start()
@@ -66,7 +85,20 @@ public class GameLogic : MonoBehaviour
         Time.timeScale = 1;
         DisableGameOverUI();
         DisableWinScreen();
+        SetupGroceryList();
+        SetupRandomItemList();
+
+        /*
+        //Randomly select 5 items
+        randomItemOne = groceryObjects[Random.Range(0, groceryObjects.Length)];
+        randomItemTwo = groceryObjects[Random.Range(0, groceryObjects.Length)];
+        randomItemThree = groceryObjects[Random.Range(0, groceryObjects.Length)];
+        randomItemFour = groceryObjects[Random.Range(0, groceryObjects.Length)];
+        randomItemFive = groceryObjects[Random.Range(0, groceryObjects.Length)];
+        */
+
     }
+
 
     private void Update()
     {
@@ -82,6 +114,70 @@ public class GameLogic : MonoBehaviour
         }
     }
 
+
+    private void SetupRandomItemList()
+    {
+        randomItemOne = groceryList[Random.Range(0, groceryList.Count)];
+        groceryList.Remove(randomItemOne);
+        randomItemTwo = groceryList[Random.Range(0, groceryList.Count)];
+        groceryList.Remove(randomItemTwo);
+        randomItemThree = groceryList[Random.Range(0, groceryList.Count)];
+        groceryList.Remove(randomItemThree);
+        randomItemFour = groceryList[Random.Range(0, groceryList.Count)];
+        groceryList.Remove(randomItemFour);
+        randomItemFive = groceryList[Random.Range(0, groceryList.Count)];
+        groceryList.Remove(randomItemFive);
+
+        //Activate Interaction for 5 items
+        randomItemOne.transform.GetChild(0).gameObject.SetActive(true);
+        randomItemTwo.transform.GetChild(0).gameObject.SetActive(true);
+        randomItemThree.transform.GetChild(0).gameObject.SetActive(true);
+        randomItemFour.transform.GetChild(0).gameObject.SetActive(true);
+        randomItemFive.transform.GetChild(0).gameObject.SetActive(true);
+
+        //Setup Names for Items
+        itemOneName = randomItemOne.name;
+        itemTwoName = randomItemTwo.name;
+        itemThreeName = randomItemThree.name;
+        itemFourName = randomItemFour.name;
+        itemFiveName = randomItemFive.name;
+
+        shoppingText.text = itemOneName + "\n" + itemTwoName + "\n" + itemThreeName + "\n" + itemFourName + "\n" + itemFiveName;
+    }
+
+
+    private void SetupGroceryList()
+    {
+        foreach(GameObject groceryObject in GameObject.FindGameObjectsWithTag("Grocery"))
+        {
+            groceryList.Add(groceryObject);
+        }
+    }
+
+
+    public void CollectedItem()
+    {
+        itemsLeft -= 1;
+
+        Debug.Log("Items Left: " + itemsLeft);
+
+        if (itemsLeft <= 0)
+        {
+            //Launch Win State
+            WinScreen();
+        }
+    }
+
+
+    void DisableItems()
+    {
+        foreach (GameObject g in interactionObjects)
+        {
+            g.SetActive(false);
+        }
+    }
+
+
     private void GameOver()
     {
         //Pause game
@@ -94,21 +190,17 @@ public class GameLogic : MonoBehaviour
         }
     }
 
-    
 
-    public void CollectedItem()
+    private void DisableGameOverUI()
     {
-        itemsLeft -= 1;
-
-        Debug.Log("Items Left: " + itemsLeft);
-
-        if(itemsLeft <= 0)
+        //Lose State
+        foreach (GameObject g in gameOverUI)
         {
-            //Launch Win State
-            WinScreen();
+            g.SetActive(false);
         }
     }
 
+    
     void WinScreen()
     {
         //Pause game
@@ -121,6 +213,7 @@ public class GameLogic : MonoBehaviour
         }
     }
 
+
     void DisableWinScreen()
     {
         foreach (GameObject g in winScreen)
@@ -129,21 +222,5 @@ public class GameLogic : MonoBehaviour
         }
     }
 
-    private void DisableGameOverUI()
-    {
-        //Lose State
-        foreach (GameObject g in gameOverUI)
-        {
-            g.SetActive(false);
-        }
-    }
-
-    void DisableItems()
-    {
-        foreach (GameObject g in groceryObjects)
-        {
-            g.SetActive(false);
-        }
-    }
 
 }

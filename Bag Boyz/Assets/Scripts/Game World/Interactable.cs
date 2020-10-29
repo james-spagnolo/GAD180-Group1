@@ -23,13 +23,17 @@ public class Interactable : MonoBehaviour
 
     private void OnValidate()
     {
-        interactionTimer = player.interactionTimer;
         Behaviour halo = (Behaviour)GetComponent("Halo");
         halo.enabled = false;
         //GetComponent<Halo>().enabled = false;
         //halo = GetComponent("Halo");
         //halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
         //halo.enabled = false;
+    }
+
+    private void Start()
+    {
+        interactionTimer = player.interactionTimer;
     }
 
     private void Update()
