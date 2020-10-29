@@ -10,6 +10,8 @@ TagManager:
   - GameUI
   - GameOver
   - WinScreen
+  - Cam
+  - Center
   layers:
   - Default
   - TransparentFX

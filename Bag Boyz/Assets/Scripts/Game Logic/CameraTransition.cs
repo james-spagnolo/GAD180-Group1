@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.VR;
 using UnityEngine;
 
 public class CameraTransition : MonoBehaviour
@@ -19,11 +20,9 @@ public class CameraTransition : MonoBehaviour
         Cam3toCam2,
     }
 
-    public cameraTrigger thisTrigger;
+    private cameraTrigger thisTrigger;
 
     public int camTrigger;
-    public int currentCamera;
-    public int cameraTransition;
 
     bool cameraMoving = false;
 
@@ -66,6 +65,11 @@ public class CameraTransition : MonoBehaviour
                     thisTrigger = cameraTrigger.Cam1toCam2;
                     DetermineCameraTransition(thisTrigger);
                     break;
+                case 3:
+                    cameraAnimator.SetInteger("Camera", cameraTwo);
+                    thisTrigger = cameraTrigger.Cam3toCam2;
+                    DetermineCameraTransition(thisTrigger);
+                    break;
                 default: Debug.LogError("No Camera Selected"); break;
             }
         }
@@ -85,6 +89,14 @@ public class CameraTransition : MonoBehaviour
             case 1:
                 cameraOne = 2;
                 cameraTwo = 1;
+                break;
+            case 2:
+                cameraOne = 2;
+                cameraTwo = 3;
+                break;
+            case 3:
+                cameraOne = 3;
+                cameraTwo = 2;
                 break;
             default:
                 Debug.Log("Error");
@@ -117,6 +129,16 @@ public class CameraTransition : MonoBehaviour
                 else
                 {
                     cameraAnimator.SetInteger("Camera", 2);
+                }
+                break;
+            case 2:
+                if(playerPosition.y <= this.transform.position.y)
+                {
+                    cameraAnimator.SetInteger("Camera", 2);
+                }
+                else
+                {
+                    cameraAnimator.SetInteger("Camera", 3);
                 }
                 break;
             default:
