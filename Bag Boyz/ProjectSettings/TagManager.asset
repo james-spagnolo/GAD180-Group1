@@ -12,6 +12,8 @@ TagManager:
   - WinScreen
   - Cam
   - Center
+  - NPC
+  - Speech
   layers:
   - Default
   - TransparentFX
