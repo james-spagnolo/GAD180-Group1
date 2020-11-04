@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour
 
     [SerializeField] KeyCode interactKey = KeyCode.E;
 
+    /*
     [System.Serializable]
     public enum TypeOfNPC
     {
@@ -21,6 +22,7 @@ public class NPC : MonoBehaviour
     }
 
     public TypeOfNPC thisNPC;
+    */
 
     private GameObject[] speechObjects;
 
@@ -67,30 +69,7 @@ public class NPC : MonoBehaviour
         }
     }
 
-    public void DetermineDialogue(TypeOfNPC npcType)
-    {
-        int i = (int)npcType;
-
-        switch (i)
-        {
-            case 0:
-                
-                break;
-            case 1:
-                
-                break;
-            case 2:
-                
-                break;
-            case 3:
-                
-                break;
-            default:
-                Debug.Log("Error");
-                break;
-        }
-    }
-
+    
 
     private void ShowSpeech()
     {
