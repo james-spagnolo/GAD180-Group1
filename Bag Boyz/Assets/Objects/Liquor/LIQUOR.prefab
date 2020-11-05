@@ -137,7 +137,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682413562322952612}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21.66, y: -14.65, z: 0}
   m_LocalScale: {x: 2.6, y: 2.6, z: 1}
   m_Children:
@@ -148,6 +148,7 @@ Transform:
   - {fileID: 1682413563970370774}
   - {fileID: 1682413561865517620}
   - {fileID: 1682413563199578583}
+  - {fileID: 647389554}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -399,6 +400,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Whiskey
       objectReference: {fileID: 0}
+    - target: {fileID: 1363484336687588937, guid: 8c58f57d18e09fb4eb3bdb67f49024d3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grocery
+      objectReference: {fileID: 0}
     - target: {fileID: 1363484336687588951, guid: 8c58f57d18e09fb4eb3bdb67f49024d3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -473,6 +479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vodka
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001077224778666734, guid: 9d035a1fb3d9a8e49a785e6985997513,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grocery
       objectReference: {fileID: 0}
     - target: {fileID: 2001077224778666736, guid: 9d035a1fb3d9a8e49a785e6985997513,
         type: 3}
@@ -558,6 +569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bourbon
+      objectReference: {fileID: 0}
+    - target: {fileID: 932485030079370108, guid: 4992a504b49039648b7846f0b0be7fab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grocery
       objectReference: {fileID: 0}
     - target: {fileID: 932485030079370110, guid: 4992a504b49039648b7846f0b0be7fab,
         type: 3}
@@ -652,7 +668,7 @@ PrefabInstance:
     - target: {fileID: 2877717676397917616, guid: ff0c91c249d50d148ab3ee1378078c7a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3192309
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 2877717676397917616, guid: ff0c91c249d50d148ab3ee1378078c7a,
         type: 3}
@@ -709,6 +725,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Champagne
       objectReference: {fileID: 0}
+    - target: {fileID: 2877717676397917618, guid: ff0c91c249d50d148ab3ee1378078c7a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grocery
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff0c91c249d50d148ab3ee1378078c7a, type: 3}
 --- !u!4 &1682413562843007721 stripped
@@ -716,6 +737,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2877717676397917616, guid: ff0c91c249d50d148ab3ee1378078c7a,
     type: 3}
   m_PrefabInstance: {fileID: 3510158721210777433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6678633460160816554
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1682413562322952611}
+    m_Modifications:
+    - target: {fileID: 6678633460790854853, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_Name
+      value: IceBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.9782817
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4216924
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8056d209bbf179d4c92f2b9265584917, type: 3}
+--- !u!4 &647389554 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6678633460790854872, guid: 8056d209bbf179d4c92f2b9265584917,
+    type: 3}
+  m_PrefabInstance: {fileID: 6678633460160816554}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7121422757884572495
 PrefabInstance:
@@ -729,15 +825,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wine
       objectReference: {fileID: 0}
+    - target: {fileID: 8470499577963999099, guid: c15d5953f9780a7478e4f70325f6b6bc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grocery
+      objectReference: {fileID: 0}
     - target: {fileID: 8470499577963999101, guid: c15d5953f9780a7478e4f70325f6b6bc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.557692
+      value: -1.97
       objectReference: {fileID: 0}
     - target: {fileID: 8470499577963999101, guid: c15d5953f9780a7478e4f70325f6b6bc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35769206
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 8470499577963999101, guid: c15d5953f9780a7478e4f70325f6b6bc,
         type: 3}
