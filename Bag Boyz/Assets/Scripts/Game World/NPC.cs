@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
+
+    public string[] dialogue;
+    public string[] npcName;
+
     public PlayerController player;
     public DialogueTrigger speechTrigger;
     public Text speechText;
@@ -24,17 +28,21 @@ public class NPC : MonoBehaviour
     public TypeOfNPC thisNPC;
     */
 
-    private GameObject[] speechObjects;
+    public GameObject[] speechObjects;
 
     private bool isInRange;
     private bool triggeredDialogue = false;
     private bool thisInteract = false;
 
+
+    private void Awake()
+    {
+        speechObjects = GameObject.FindGameObjectsWithTag("Speech");
+    }
     // Start is called before the first frame update
     void Start()
     {
-        speechObjects = GameObject.FindGameObjectsWithTag("Speech");
-
+       
         HideSpeech();
     }
 
@@ -42,34 +50,59 @@ public class NPC : MonoBehaviour
     void Update()
     {
 
+        if (isInRange && !triggeredDialogue)
+        {
+            ShowSpeech();
+
+            speechTrigger.TriggerDialogue();
+
+            //DialogueSystem.Instance.AddNewDialogue(dialogue, npcName);
+
+            triggeredDialogue = true;
+        }
+
+        else if (isInRange && triggeredDialogue)
+        {
+            if (Input.GetKeyDown(interactKey))
+            {
+                speechTrigger.DisplayNextSentence();
+            }
+        }
+
+        else if (!isInRange && triggeredDialogue)
+        {
+            HideSpeech();
+        }
+
+        /*
         if (isInRange && Input.GetKeyDown(interactKey))
         {
 
             if(!triggeredDialogue)
             {
 
-                ShowSpeech();
-
-                speechTrigger.TriggerDialogue();
-
-                triggeredDialogue = true;
+                
             }
             else
             {
 
                 speechTrigger.DisplayNextSentence();
 
+                //DialogueSystem.Instance.ContinueDialogue();
             }
             
         }
-        
-        if (!isInRange)
-        {
-            HideSpeech();
-        }
+        */
+
+
     }
 
-    
+    /*
+    public override void Interact()
+    {
+        DialogueSystem.Instance.AddNewDialogue(dialogue);
+    }
+    */
 
     private void ShowSpeech()
     {

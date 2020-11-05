@@ -497,7 +497,7 @@ Transform:
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children: []
   m_Father: {fileID: 1252001743}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &506036894
 SpriteRenderer:
@@ -753,12 +753,6 @@ Transform:
   m_Father: {fileID: 1257820738}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &532679071 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2011961036624171397, guid: 70e3314b6d5efbf46a2b8a851e3b8382,
-    type: 3}
-  m_PrefabInstance: {fileID: 2011961036829693978}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &550789099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1314855634055647552, guid: a31cbd88cdf212a40aa76bef2dad4bef,
@@ -1255,6 +1249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510361b2bd2576a49864717176be057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   nameText: {fileID: 1340077475}
   speechText: {fileID: 815446639}
 --- !u!4 &911016415
@@ -1338,12 +1333,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1050810655}
---- !u!1 &987343720 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3050939635729975171, guid: 072f7755e96b1f9448480c991e3e157b,
-    type: 3}
-  m_PrefabInstance: {fileID: 4009212965415727530}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1047778826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,7 +1699,6 @@ Transform:
   - {fileID: 7694113025736073307}
   - {fileID: 4110888911700186677}
   - {fileID: 4930465528335549324}
-  - {fileID: 1660842810}
   - {fileID: 3757856903779209937}
   - {fileID: 506036893}
   - {fileID: 1306795077}
@@ -2135,12 +2123,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4040925479732744727}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1469754870 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6468499926630088632, guid: 85e43c9242094a54e9957e177159bff5,
-    type: 3}
-  m_PrefabInstance: {fileID: 7285490731840919395}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1537188111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,11 +2465,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660842807}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.58, y: -8.16, z: 34.61652}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.8760004, y: -16.112, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
-  m_Father: {fileID: 1252001743}
-  m_RootOrder: 7
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1660842811
 CircleCollider2D:
@@ -2517,10 +2499,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4f46bcab2c58349809229d151a799e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+  - sdf
+  - sdfsd
+  - sdfsd
+  npcName:
+  - 
+  - 
+  - 
   player: {fileID: 164245604876163456}
   speechTrigger: {fileID: 1660842813}
   speechText: {fileID: 815446639}
   interactKey: 101
+  speechObjects: []
 --- !u!114 &1660842813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,7 +2525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Employee 1
+    names: []
     sentences:
     - Sup
     - Hows it going
@@ -2714,23 +2705,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Charity Worker
+    names:
+    - Charity Worker
+    - You
+    - Charity Worker
+    - You
+    - Charity Worker
+    - You
+    - Charity Worker
+    - You
+    - Charity Worker
+    - You
+    - Charity Worker
+    - You
+    - Charity Worker
     sentences:
     - Hi! Are you interested in saving the planet?
-    - Uh... yes I am, but I just...
-    - It'll only take a few minutes! It's for the planet! So...
-    - Yeah but I...
-    - I just want to inform you on how you can contribute to the efforts of GreenPeace
-      around the globe
-    - Oh GreenPeace?! I've actually already signed up with you guys. I already give.
-    - Oh that's very generous of you! Are you aware of our new campaign to save the
-      sea turtles?
-    - Yeah, yeah, I've read all the emails and heard all about it
-    - Really? The campaign that doesn't exist? The one that I just made up?
+    - "Uh.. Yes I am but I just\u2026"
+    - "It\u2019ll just take a few minutes, it's for the planet! So..."
+    - "Yeah but I\u2026"
+    - "I just want to tell you about how you can contribute to GreenPeace\u2019s
+      efforts all around the globe"
+    - "Oh GreenPeace?! I\u2019m actually already signed up with you guys, I already
+      give"
+    - "Oh that\u2019s very generous of you, do you know of our new campaign to save
+      the sea turtles?"
+    - Yeah, yeah, I've been reading all the emails, been reading all about it.
+    - Really? The campaign that doesn't exist, the one that I just made up?
     - ...
-    - You don't actually give to GreenPeace do you...?
-    - That money you've been raising... How much of it actually goes to the turtles?
-    - Well none of it, I made it up...
+    - You don't actually give to GreenPeace do you...
+    - You know that money you're raising? How much of it actually goes to the turtles?
+    - Well none of it, I just made that up...
 --- !u!212 &2046821284
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2808,9 +2813,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.34825635, y: 0}
   serializedVersion: 2
-  m_Radius: 0.64
+  m_Radius: 1.7428119
 --- !u!61 &2046821287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2849,10 +2854,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4f46bcab2c58349809229d151a799e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+  - Hi! Are you interested in saving the planet?
+  - Uh... yes I am, but I just...
+  - It'll only take a few minutes! It's for the planet! So...
+  - Yeah but I...
+  - I just want to inform you on how you can contribute to the efforts of GreenPeace
+    around the globe
+  - Oh GreenPeace?! I've actually already signed up with you guys. I already give.
+  - Oh that's very generous of you! Are you aware of our new campaign to save the
+    sea turtles?
+  - Yeah, yeah, I've read all the emails and heard all about it
+  - Really? The campaign that doesn't exist? The one that I just made up?
+  - ...
+  - You don't actually give to GreenPeace do you...?
+  - That money you've been raising... How much of it actually goes to the turtles?
+  - Well none of it, I made it up...
+  npcName:
+  - Charity Worker
+  - You
+  - Charity Worker
+  - You
+  - Charity Worker
+  - You
+  - Charity Worker
+  - You
+  - Charity Worker
+  - You
+  - Charity Worker
+  - You
+  - Charity Worker
   player: {fileID: 164245604876163456}
   speechTrigger: {fileID: 2046821283}
   speechText: {fileID: 815446639}
   interactKey: 101
+  speechObjects: []
 --- !u!1 &2050006100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2896,10 +2932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5a1e7d4e5f6cb47a26aeb701ebff21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionObjects:
-  - {fileID: 987343720}
-  - {fileID: 1469754870}
-  - {fileID: 532679071}
+  interactionObjects: []
   groceryObjects:
   - {fileID: 198303187}
   - {fileID: 216730380}
@@ -3375,15 +3408,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 164245604989814488, guid: d956b4b53e477ff4eb88dfdac1a5936a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.7615452
+      objectReference: {fileID: 0}
+    - target: {fileID: 164245604989814488, guid: d956b4b53e477ff4eb88dfdac1a5936a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.95339584
+      objectReference: {fileID: 0}
+    - target: {fileID: 164245604989814488, guid: d956b4b53e477ff4eb88dfdac1a5936a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.000056266785
+      objectReference: {fileID: 0}
+    - target: {fileID: 164245604989814488, guid: d956b4b53e477ff4eb88dfdac1a5936a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.7190094
+      objectReference: {fileID: 0}
     - target: {fileID: 164245604989814489, guid: d956b4b53e477ff4eb88dfdac1a5936a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.71
+      value: -2.23
       objectReference: {fileID: 0}
     - target: {fileID: 164245604989814489, guid: d956b4b53e477ff4eb88dfdac1a5936a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.12
+      value: -12.06
       objectReference: {fileID: 0}
     - target: {fileID: 164245604989814489, guid: d956b4b53e477ff4eb88dfdac1a5936a,
         type: 3}
@@ -4497,7 +4550,7 @@ PrefabInstance:
     - target: {fileID: 7778315417866298258, guid: 2d3ff9ab908b7324082ba2d79f9d7849,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7778315417866298258, guid: 2d3ff9ab908b7324082ba2d79f9d7849,
         type: 3}
@@ -5231,7 +5284,7 @@ PrefabInstance:
     - target: {fileID: 7393828357837265045, guid: 6a3850b5b1eecf2459b0b796a7e60b06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7393828357837265045, guid: 6a3850b5b1eecf2459b0b796a7e60b06,
         type: 3}

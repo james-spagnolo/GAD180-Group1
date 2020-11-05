@@ -7,23 +7,42 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
+    public PlayerController player;
+
     public Text nameText;
     public Text speechText;
 
+
     private Queue<string> sentences;
+    private Queue<string> names;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        names = new Queue<string>();
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
+
+
 
 
     public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("Starting Conversation with " + dialogue.name);
+        Debug.Log("Starting Conversation");
 
-        nameText.text = dialogue.name;
+        player.canMove = false;
+        //player.TurnOffAnimations();
+
+        names.Clear();
+
+        foreach(string name in dialogue.names)
+        {
+            names.Enqueue(name);
+        }
 
         sentences.Clear();
 
@@ -35,21 +54,30 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
+
+
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        if(sentences.Count == 0 || names.Count == 0)
         {
             EndDialogue();
             return;
         }
 
+        string name = names.Dequeue();
+        nameText.text = name;
+
         string sentence = sentences.Dequeue();
         speechText.text = sentence;
     }
 
+
+
     public void EndDialogue()
     {
         Debug.Log("End of Conversation");
+
+        player.canMove = true;
     }
 
     // Update is called once per frame

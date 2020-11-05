@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float interactionTimer = 1.0f; //Adjust player interaction speed
     public bool eightDirections = false; //can turn on and off eightDirections in Unity inspector
     public bool collectingItem = false;
+    public bool canMove = true;
 
     private Vector2 movement;
     private bool facingLeft = true;
@@ -37,225 +38,231 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if(!collectingItem)
+        if (canMove)
         {
-            //If eightDirections is turned off use 4 directional movement
-            if (!eightDirections)
+            if (!collectingItem)
             {
-                //If the D key is pressed
-                if (Input.GetKey(KeyCode.D))
+                //If eightDirections is turned off use 4 directional movement
+                if (!eightDirections)
                 {
-                    //Remove any excess animations
-                    TurnOffAnimations();
-
-                    //Player is facing right
-                    facingLeft = false;
-
-                    //Play Walking Right animation
-                    anim.SetBool("MovingRight", true);
-
-                    //Move Player towards the right direction by player speed
-                    transform.Translate(Vector2.right * speed * Time.deltaTime);
-
-                }
-
-
-
-                //If the A key is pressed
-                else if (Input.GetKey(KeyCode.A))
-                {
-                    //Remove any excess animations
-                    TurnOffAnimations();
-
-                    //Player is facing left
-                    facingLeft = true;
-
-                    //Play Walking Left animation
-                    anim.SetBool("MovingLeft", true);
-
-
-                    //Move Player towards the Left direction by player speed
-                    transform.Translate(Vector2.left * speed * Time.deltaTime);
-                }
-
-
-                //If the S key is pressed
-                else if (Input.GetKey(KeyCode.S))
-                {
-                    //Remove any excess animations
-                    TurnOffAnimations();
-
-                    //Play left animation if player is facing left, else play right animation
-                    if (facingLeft)
+                    //If the D key is pressed
+                    if (Input.GetKey(KeyCode.D))
                     {
+                        //Remove any excess animations
+                        TurnOffAnimations();
+
+                        //Player is facing right
+                        facingLeft = false;
+
+                        //Play Walking Right animation
+                        anim.SetBool("MovingRight", true);
+
+                        //Move Player towards the right direction by player speed
+                        transform.Translate(Vector2.right * speed * Time.deltaTime);
+
+                    }
+
+
+
+                    //If the A key is pressed
+                    else if (Input.GetKey(KeyCode.A))
+                    {
+                        //Remove any excess animations
+                        TurnOffAnimations();
+
+                        //Player is facing left
+                        facingLeft = true;
+
                         //Play Walking Left animation
                         anim.SetBool("MovingLeft", true);
-                    }
-                    else
-                    {
-                        //Play Walking right animation
-                        anim.SetBool("MovingRight", true);
+
+
+                        //Move Player towards the Left direction by player speed
+                        transform.Translate(Vector2.left * speed * Time.deltaTime);
                     }
 
-                    //Move Player towards the Down direction by player speed
-                    transform.Translate(Vector2.down * speed * Time.deltaTime);
+
+                    //If the S key is pressed
+                    else if (Input.GetKey(KeyCode.S))
+                    {
+                        //Remove any excess animations
+                        TurnOffAnimations();
+
+                        //Play left animation if player is facing left, else play right animation
+                        if (facingLeft)
+                        {
+                            //Play Walking Left animation
+                            anim.SetBool("MovingLeft", true);
+                        }
+                        else
+                        {
+                            //Play Walking right animation
+                            anim.SetBool("MovingRight", true);
+                        }
+
+                        //Move Player towards the Down direction by player speed
+                        transform.Translate(Vector2.down * speed * Time.deltaTime);
+                    }
+
+
+                    //If the W key is pressed
+                    else if (Input.GetKey(KeyCode.W))
+                    {
+                        //Remove any excess animations
+                        TurnOffAnimations();
+
+                        //Play left animation if player is facing left, else play right animation
+                        if (facingLeft)
+                        {
+                            //Play Walking Left animation
+                            anim.SetBool("MovingLeft", true);
+                        }
+                        else
+                        {
+                            //Play Walking right animation
+                            anim.SetBool("MovingRight", true);
+                        }
+
+                        //Move Player towards the Up direction by player speed
+                        transform.Translate(Vector2.up * speed * Time.deltaTime);
+                    }
+
+
+                    //If none of the keys are being pressed
+                    else if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+                    {
+                        //Remove any excess animations
+                        TurnOffAnimations();
+
+                        //If the Player is facing left
+                        if (facingLeft)
+                        {
+                            //Play Left Idle animation
+                            anim.SetBool("IdleLeft", true);
+                        }
+                        else
+                        {
+                            //Play Right Idle animation
+                            anim.SetBool("IdleRight", true);
+                        }
+                    }
                 }
 
 
-                //If the W key is pressed
-                else if (Input.GetKey(KeyCode.W))
+                //If eightDirections is on use 8 directional movement
+                else if (eightDirections)
                 {
-                    //Remove any excess animations
-                    TurnOffAnimations();
 
-                    //Play left animation if player is facing left, else play right animation
-                    if (facingLeft)
+                    //Get Horizontal Player Input (Left to Right)
+                    float inputX = Input.GetAxisRaw("Horizontal");
+
+                    //Get Vertical Player Input (Top to Bottom)
+                    float inputY = Input.GetAxisRaw("Vertical");
+
+                    //Create movement Vector with position equal to player input
+                    movement = new Vector2(inputX, inputY);
+
+                    //Checks if the Player is moving diagonally
+                    if (inputX != 0 && inputY != 0)
                     {
-                        //Play Walking Left animation
-                        anim.SetBool("MovingLeft", true);
+                        //If the player is moving towards the top left
+                        if (movement.y == 1 && movement.x == -1)
+                        {
+                            //Play top left animation
+                        }
+
+                        //If the player is moving towards the top right
+                        if (movement.y == 1 && movement.x == 1)
+                        {
+                            //Play top right animation
+                        }
+
+                        //If the player is moving towards the bottom left
+                        if (movement.y == -1 && movement.x == -1)
+                        {
+                            //Play bottom left animation
+                        }
+
+                        //If the player is moving towards the bottom right
+                        if (movement.y == -1 && movement.x == 1)
+                        {
+                            //Play bottom right animation
+                        }
                     }
+
                     else
                     {
-                        //Play Walking right animation
-                        anim.SetBool("MovingRight", true);
+
+                        //If the player is moving left
+                        if (movement.x == -1)
+                        {
+                            TurnOffAnimations();
+
+                            //Play left animation
+                            anim.SetBool("MovingLeft", true);
+                        }
+
+                        //If the player is moving right
+                        if (movement.x == 1)
+                        {
+                            TurnOffAnimations();
+
+                            //Play right animation
+                            anim.SetBool("MovingRight", true);
+                        }
+
+                        //If the player is moving up
+                        if (movement.y == 1)
+                        {
+                            TurnOffAnimations();
+
+                            //Play up animation
+                            anim.SetBool("MovingUp", true);
+                        }
+
+                        //If the player is moving down
+                        if (movement.y == -1)
+                        {
+                            TurnOffAnimations();
+
+                            //Play down animation
+                            anim.SetBool("MovingDown", true);
+                        }
                     }
 
-                    //Move Player towards the Up direction by player speed
-                    transform.Translate(Vector2.up * speed * Time.deltaTime);
+                    //If the player is NOT moving
+                    if (movement.x == 0 && movement.y == 0)
+                    {
+                        TurnOffAnimations();
+
+                        //Play Idle Animation
+                        anim.SetBool("NotMoving", true);
+                    }
+
+                    //Move the player in the direction of input by 'speed' units per second.
+                    Move();
+
+                    //transform.Translate(movement * speed * Time.deltaTime);
                 }
 
-
-                //If none of the keys are being pressed
-                else if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-                {
-                    //Remove any excess animations
-                    TurnOffAnimations();
-
-                    //If the Player is facing left
-                    if (facingLeft)
-                    {
-                        //Play Left Idle animation
-                        anim.SetBool("IdleLeft", true);
-                    }
-                    else
-                    {
-                        //Play Right Idle animation
-                        anim.SetBool("IdleRight", true);
-                    }
-                }
             }
-
-
-            //If eightDirections is on use 8 directional movement
-            else if (eightDirections)
+            
+            else if (collectingItem)
             {
-
-                //Get Horizontal Player Input (Left to Right)
-                float inputX = Input.GetAxisRaw("Horizontal");
-
-                //Get Vertical Player Input (Top to Bottom)
-                float inputY = Input.GetAxisRaw("Vertical");
-
-                //Create movement Vector with position equal to player input
-                movement = new Vector2(inputX, inputY);
-
-                //Checks if the Player is moving diagonally
-                if (inputX != 0 && inputY != 0)
+                if (facingLeft)
                 {
-                    //If the player is moving towards the top left
-                    if (movement.y == 1 && movement.x == -1)
-                    {
-                        //Play top left animation
-                    }
-
-                    //If the player is moving towards the top right
-                    if (movement.y == 1 && movement.x == 1)
-                    {
-                        //Play top right animation
-                    }
-
-                    //If the player is moving towards the bottom left
-                    if (movement.y == -1 && movement.x == -1)
-                    {
-                        //Play bottom left animation
-                    }
-
-                    //If the player is moving towards the bottom right
-                    if (movement.y == -1 && movement.x == 1)
-                    {
-                        //Play bottom right animation
-                    }
+                    TurnOffAnimations();
+                    anim.SetBool("InteractLeft", true);
                 }
-
                 else
                 {
-
-                    //If the player is moving left
-                    if (movement.x == -1)
-                    {
-                        TurnOffAnimations();
-
-                        //Play left animation
-                        anim.SetBool("MovingLeft", true);
-                    }
-
-                    //If the player is moving right
-                    if (movement.x == 1)
-                    {
-                        TurnOffAnimations();
-
-                        //Play right animation
-                        anim.SetBool("MovingRight", true);
-                    }
-
-                    //If the player is moving up
-                    if (movement.y == 1)
-                    {
-                        TurnOffAnimations();
-
-                        //Play up animation
-                        anim.SetBool("MovingUp", true);
-                    }
-
-                    //If the player is moving down
-                    if (movement.y == -1)
-                    {
-                        TurnOffAnimations();
-
-                        //Play down animation
-                        anim.SetBool("MovingDown", true);
-                    }
-                }
-
-                //If the player is NOT moving
-                if (movement.x == 0 && movement.y == 0)
-                {
                     TurnOffAnimations();
-
-                    //Play Idle Animation
-                    anim.SetBool("NotMoving", true);
+                    anim.SetBool("InteractRight", true);
                 }
-
-                //Move the player in the direction of input by 'speed' units per second.
-                Move();
-
-                //transform.Translate(movement * speed * Time.deltaTime);
-            }
-
-        }
-        else if(collectingItem)
-        {
-            if(facingLeft)
-            {
-                TurnOffAnimations();
-                anim.SetBool("InteractLeft", true);
-            }
-            else
-            {
-                TurnOffAnimations();
-                anim.SetBool("InteractRight", true);
             }
         }
+        
+        
 
     }
 
@@ -264,7 +271,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(movement.x * speed, movement.y * speed);
     }
 
-    void TurnOffAnimations()
+    public void TurnOffAnimations()
     {
         //Stop all animations from being active
         anim.SetBool("IdleLeft", false);
