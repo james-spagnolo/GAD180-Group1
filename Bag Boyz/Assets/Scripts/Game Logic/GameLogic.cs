@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -35,6 +36,9 @@ public class GameLogic : MonoBehaviour
 
     // Text displayed on Shopping List on UI
     public Text shoppingText;
+
+    // Text displaying timeLeft on UI
+    public Text timerText;
 
     // Amount in Seconds of timer
     public float timeLeft;
@@ -112,6 +116,10 @@ public class GameLogic : MonoBehaviour
             //Launch GameOver
             GameOver();
         }
+
+        int roundTimeLeft = (int)Math.Round(timeLeft);
+        string timeLeftText = roundTimeLeft.ToString();
+        timerText.text = timeLeftText;
     }
 
 

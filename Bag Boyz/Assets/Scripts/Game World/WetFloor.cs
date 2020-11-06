@@ -5,10 +5,13 @@ using UnityEngine;
 public class WetFloor : MonoBehaviour
 {
 
+    // Reference to the Player
     public PlayerController player;
 
+    // True when the Player is Sliding
     public bool playerSliding = false;
 
+    // Stores the last movement key that was pressed
     KeyCode lastKeyPressed;
 
 
@@ -22,11 +25,13 @@ public class WetFloor : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown("w"))
+        // Checks the last movement key pressed (W, S, A or D)
+        // Stores that key in the lastKeyPressed variable
+        if (Input.GetKeyDown(KeyCode.W))
         {
             lastKeyPressed = KeyCode.W;
         }
-        else if (Input.GetKeyDown("s"))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             lastKeyPressed = KeyCode.S;
         }
@@ -40,9 +45,15 @@ public class WetFloor : MonoBehaviour
         }
 
 
-        if (playerSliding == true)
+
+
+        // Checks if the Player is sliding
+        // The main wet floor sliding movement logic goes here
+        if (playerSliding)
         {
 
+            // Checks which movement key was last pressed
+            // Forces the player to move in that direction
             if (lastKeyPressed == KeyCode.W)
             {
                 player.transform.Translate(Vector2.up * player.speed * Time.deltaTime);
