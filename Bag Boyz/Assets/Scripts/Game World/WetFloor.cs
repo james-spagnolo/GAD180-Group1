@@ -11,6 +11,8 @@ public class WetFloor : MonoBehaviour
     // True when the Player is Sliding
     public bool playerSliding = false;
 
+    public int slideSpeed = 2;
+
     // Stores the last movement key that was pressed
     KeyCode lastKeyPressed;
 
@@ -35,11 +37,11 @@ public class WetFloor : MonoBehaviour
         {
             lastKeyPressed = KeyCode.S;
         }
-        else if (Input.GetKeyDown("a"))
+        else if (Input.GetKeyDown(KeyCode.A))
         {
             lastKeyPressed = KeyCode.A;
         }
-        else if (Input.GetKeyDown("d"))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             lastKeyPressed = KeyCode.D;
         }
@@ -56,23 +58,28 @@ public class WetFloor : MonoBehaviour
             // Forces the player to move in that direction
             if (lastKeyPressed == KeyCode.W)
             {
-                player.transform.Translate(Vector2.up * player.speed * Time.deltaTime);
+                player.Move(0, slideSpeed);
+                //player.transform.Translate(Vector2.up * player.speed * Time.deltaTime);
             }
             if (lastKeyPressed == KeyCode.A)
             {
-                player.transform.Translate(Vector2.left * player.speed * Time.deltaTime);
+                player.Move(-slideSpeed, 0);
+                //player.transform.Translate(Vector2.left * player.speed * Time.deltaTime);
             }
             if (lastKeyPressed == KeyCode.S)
             {
-                player.transform.Translate(Vector2.down * player.speed * Time.deltaTime);
+                player.Move(0, -slideSpeed);
+                //player.transform.Translate(Vector2.down * player.speed * Time.deltaTime);
             }
             if (lastKeyPressed == KeyCode.D)
             {
-                player.transform.Translate(Vector2.right * player.speed * Time.deltaTime);
+                player.Move(slideSpeed, 0);
+                //player.transform.Translate(Vector2.right * player.speed * Time.deltaTime);
             }
         }
 
 
+        /*
         //work around until rigidbody movement is implemented
         if (player.gameObject.GetComponent<Renderer>().bounds.Intersects(gameObject.GetComponent<Renderer>().bounds))
         {
@@ -82,21 +89,23 @@ public class WetFloor : MonoBehaviour
         {
             playerSliding = false;
         }
+        */
 
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Entered");
-        if (collision.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             playerSliding = true;
+            Debug.Log("Player is Sliding");
         }
     }
 
-    private void OnTriggerExit(Collider collision)
+   
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             playerSliding = false;
         }

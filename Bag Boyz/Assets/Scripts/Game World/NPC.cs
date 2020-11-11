@@ -59,6 +59,8 @@ public class NPC : MonoBehaviour
             //DialogueSystem.Instance.AddNewDialogue(dialogue, npcName);
 
             triggeredDialogue = true;
+
+            player.Move(0, 0);
         }
 
         else if (isInRange && triggeredDialogue)

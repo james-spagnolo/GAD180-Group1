@@ -2454,6 +2454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 164245604876163456}
   playerSliding: 0
+  slideSpeed: 2
 --- !u!61 &1104045085
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2538,7 +2539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104045083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.74, y: 2.95, z: 0}
+  m_LocalPosition: {x: 3.7, y: -12.02, z: 0}
   m_LocalScale: {x: 4.4756384, y: 4.3392797, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4544,10 +4545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5a1e7d4e5f6cb47a26aeb701ebff21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionObjects:
-  - {fileID: 4009212965415727531}
-  - {fileID: 7285490731840919396}
-  - {fileID: 2011961036829693979}
+  interactionObjects: []
   groceryObjects:
   - {fileID: 483917329}
   - {fileID: 85592939}
@@ -6023,12 +6021,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70e3314b6d5efbf46a2b8a851e3b8382, type: 3}
---- !u!1 &2011961036829693979 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2011961036624171397, guid: 70e3314b6d5efbf46a2b8a851e3b8382,
-    type: 3}
-  m_PrefabInstance: {fileID: 2011961036829693978}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2387279084307710500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6633,12 +6625,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 072f7755e96b1f9448480c991e3e157b, type: 3}
---- !u!1 &4009212965415727531 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3050939635729975171, guid: 072f7755e96b1f9448480c991e3e157b,
-    type: 3}
-  m_PrefabInstance: {fileID: 4009212965415727530}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4040925479732744727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7822,12 +7808,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85e43c9242094a54e9957e177159bff5, type: 3}
---- !u!1 &7285490731840919396 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6468499926630088632, guid: 85e43c9242094a54e9957e177159bff5,
-    type: 3}
-  m_PrefabInstance: {fileID: 7285490731840919395}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7541745929000245222
 PrefabInstance:
   m_ObjectHideFlags: 0

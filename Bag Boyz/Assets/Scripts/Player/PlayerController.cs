@@ -58,7 +58,9 @@ public class PlayerController : MonoBehaviour
                         anim.SetBool("MovingRight", true);
 
                         //Move Player towards the right direction by player speed
-                        transform.Translate(Vector2.right * speed * Time.deltaTime);
+                        //transform.Translate(Vector2.right * speed * Time.deltaTime);
+
+                        Move(1, 0);
 
                     }
 
@@ -78,7 +80,9 @@ public class PlayerController : MonoBehaviour
 
 
                         //Move Player towards the Left direction by player speed
-                        transform.Translate(Vector2.left * speed * Time.deltaTime);
+                        //transform.Translate(Vector2.left * speed * Time.deltaTime);
+
+                        Move(-1, 0);
                     }
 
 
@@ -101,7 +105,9 @@ public class PlayerController : MonoBehaviour
                         }
 
                         //Move Player towards the Down direction by player speed
-                        transform.Translate(Vector2.down * speed * Time.deltaTime);
+                        //transform.Translate(Vector2.down * speed * Time.deltaTime);
+
+                        Move(0, -1);
                     }
 
 
@@ -124,7 +130,9 @@ public class PlayerController : MonoBehaviour
                         }
 
                         //Move Player towards the Up direction by player speed
-                        transform.Translate(Vector2.up * speed * Time.deltaTime);
+                        //transform.Translate(Vector2.up * speed * Time.deltaTime);
+
+                        Move(0, 1);
                     }
 
 
@@ -145,6 +153,8 @@ public class PlayerController : MonoBehaviour
                             //Play Right Idle animation
                             anim.SetBool("IdleRight", true);
                         }
+
+                        Move(0, 0);
                     }
                 }
 
@@ -240,7 +250,7 @@ public class PlayerController : MonoBehaviour
                     }
 
                     //Move the player in the direction of input by 'speed' units per second.
-                    Move();
+                    Move(movement.x, movement.y);
 
                     //transform.Translate(movement * speed * Time.deltaTime);
                 }
@@ -266,9 +276,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Move()
+    public void Move(float velX, float velY)
     {
-        rb.velocity = new Vector2(movement.x * speed, movement.y * speed);
+        rb.velocity = new Vector2(velX * speed, velY * speed);
     }
 
     public void TurnOffAnimations()
