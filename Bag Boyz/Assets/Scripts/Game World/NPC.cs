@@ -61,10 +61,13 @@ public class NPC : MonoBehaviour
             triggeredDialogue = true;
 
             player.Move(0, 0);
+            player.npcInteract();
         }
 
         else if (isInRange && triggeredDialogue)
         {
+            player.npcInteract();
+
             if (Input.GetKeyDown(interactKey))
             {
                 speechTrigger.DisplayNextSentence();

@@ -281,6 +281,22 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(velX * speed, velY * speed);
     }
 
+
+    public void npcInteract()
+    {
+        TurnOffAnimations();
+
+        if (facingLeft)
+        {
+            anim.SetBool("IdleLeft", true);
+        }
+        else
+        {
+            anim.SetBool("IdleRight", true);
+        }
+    }
+
+
     public void TurnOffAnimations()
     {
         //Stop all animations from being active
