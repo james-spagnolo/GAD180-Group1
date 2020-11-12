@@ -29,21 +29,24 @@ public class WetFloor : MonoBehaviour
 
         // Checks the last movement key pressed (W, S, A or D)
         // Stores that key in the lastKeyPressed variable
-        if (Input.GetKeyDown(KeyCode.W))
+        if(playerSliding == false)
         {
-            lastKeyPressed = KeyCode.W;
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            lastKeyPressed = KeyCode.S;
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            lastKeyPressed = KeyCode.A;
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            lastKeyPressed = KeyCode.D;
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                lastKeyPressed = KeyCode.W;
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                lastKeyPressed = KeyCode.S;
+            }
+            else if (Input.GetKeyDown(KeyCode.A))
+            {
+                lastKeyPressed = KeyCode.A;
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                lastKeyPressed = KeyCode.D;
+            }
         }
 
 
@@ -59,22 +62,22 @@ public class WetFloor : MonoBehaviour
             if (lastKeyPressed == KeyCode.W)
             {
                 player.Move(0, slideSpeed);
-                //player.transform.Translate(Vector2.up * player.speed * Time.deltaTime);
+                player.transform.Translate(Vector2.up * player.speed * Time.deltaTime);
             }
             if (lastKeyPressed == KeyCode.A)
             {
                 player.Move(-slideSpeed, 0);
-                //player.transform.Translate(Vector2.left * player.speed * Time.deltaTime);
+                player.transform.Translate(Vector2.left * player.speed * Time.deltaTime);
             }
             if (lastKeyPressed == KeyCode.S)
             {
                 player.Move(0, -slideSpeed);
-                //player.transform.Translate(Vector2.down * player.speed * Time.deltaTime);
+                player.transform.Translate(Vector2.down * player.speed * Time.deltaTime);
             }
             if (lastKeyPressed == KeyCode.D)
             {
                 player.Move(slideSpeed, 0);
-                //player.transform.Translate(Vector2.right * player.speed * Time.deltaTime);
+                player.transform.Translate(Vector2.right * player.speed * Time.deltaTime);
             }
         }
 
@@ -98,7 +101,7 @@ public class WetFloor : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerSliding = true;
-            Debug.Log("Player is Sliding");
+            player.canMove = false;
         }
     }
 
@@ -108,6 +111,7 @@ public class WetFloor : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerSliding = false;
+            player.canMove = true;
         }
     }
 
