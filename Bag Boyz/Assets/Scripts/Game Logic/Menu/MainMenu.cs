@@ -8,11 +8,14 @@ public class MainMenu : MonoBehaviour
 
     public AudioSource menuMusic;
 
+
     private void Start()
     {
         //Play Main Menu Theme
         menuMusic.Play();
     }
+
+    
 
     public void LoadLevel(string level)
     {
