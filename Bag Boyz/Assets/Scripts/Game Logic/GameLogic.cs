@@ -53,6 +53,9 @@ public class GameLogic : MonoBehaviour
     private string itemFourName;
     private string itemFiveName;
 
+
+
+
     // Start is called before the first frame update
     void OnValidate()
     {
@@ -106,6 +109,10 @@ public class GameLogic : MonoBehaviour
 
     private void Update()
     {
+
+        //Update Shopping List
+        shoppingText.text = itemOneName + "\n" + itemTwoName + "\n" + itemThreeName + "\n" + itemFourName + "\n" + itemFiveName;
+
         //Start counting down from timeLeft in seconds
         timeLeft -= Time.deltaTime;
 
@@ -163,9 +170,11 @@ public class GameLogic : MonoBehaviour
     }
 
 
-    public void CollectedItem()
+    public void CollectedItem(Item itemCollected)
     {
         itemsLeft -= 1;
+
+        CheckItemCollected(itemCollected);
 
         Debug.Log("Items Left: " + itemsLeft);
 
@@ -176,6 +185,34 @@ public class GameLogic : MonoBehaviour
         }
     }
 
+
+    void CheckItemCollected(Item item)
+    {
+        if (item.ItemName == itemOneName)
+        {
+            itemOneName = "<color=green>" + itemOneName + "</color>";
+        }
+        else if (item.ItemName == itemTwoName)
+        {
+            itemTwoName = "<color=green>" + itemTwoName + "</color>";
+        }
+        else if (item.ItemName == itemThreeName)
+        {
+            itemThreeName = "<color=green>" + itemThreeName + "</color>";
+        }
+        else if (item.ItemName == itemFourName)
+        {
+            itemFourName = "<color=green>" + itemFourName + "</color>";
+        }
+        else if (item.ItemName == itemFiveName)
+        {
+            itemFiveName = "<color=green>" + itemFiveName + "</color>";
+        }
+        else
+        {
+            Debug.Log("Collection Error");
+        }
+    }
 
     void DisableItems()
     {

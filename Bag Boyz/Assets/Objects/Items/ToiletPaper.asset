@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b591ec17fd54747a3d974252e0b475, type: 3}
   m_Name: ToiletPaper
   m_EditorClassIdentifier: 
-  ItemName: ToiletPaper
+  ItemName: Toilet Paper
   Icon: {fileID: 21300000, guid: 5406007d061630a4da2cf2ca0fcf2b54, type: 3}

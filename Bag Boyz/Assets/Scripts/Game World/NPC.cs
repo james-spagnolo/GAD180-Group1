@@ -74,6 +74,8 @@ public class NPC : MonoBehaviour
         else if (!isInRange && triggeredDialogue)
         {
             HideSpeech();
+
+            triggeredDialogue = false;
         }
 
         /*
@@ -114,7 +116,7 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private void HideSpeech()
+    public void HideSpeech()
     {
         foreach(GameObject speechObject in speechObjects)
         {

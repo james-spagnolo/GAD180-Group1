@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
 
     public PlayerController player;
+    public NPC npc;
 
     public Text nameText;
     public Text speechText;
@@ -78,6 +79,9 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("End of Conversation");
 
         player.canMove = true;
+
+        npc.HideSpeech();
+        
     }
 
     // Update is called once per frame

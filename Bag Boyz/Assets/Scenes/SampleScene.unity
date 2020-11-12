@@ -2046,7 +2046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510361b2bd2576a49864717176be057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 164245604876163456}
+  npc: {fileID: 2046821288}
   nameText: {fileID: 1340077475}
   speechText: {fileID: 815446639}
 --- !u!4 &911016415
@@ -2551,7 +2552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104045083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.39, y: -11.31, z: 0}
+  m_LocalPosition: {x: 5, y: -12, z: 0}
   m_LocalScale: {x: 2.5485253, y: 2.5240226, z: 0.62095606}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4444,9 +4445,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.34825635, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.7428119
+  m_Radius: 2
 --- !u!61 &2046821287
 BoxCollider2D:
   m_ObjectHideFlags: 0

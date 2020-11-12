@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b591ec17fd54747a3d974252e0b475, type: 3}
   m_Name: TomatoPaste
   m_EditorClassIdentifier: 
-  ItemName: TomatoPaste
+  ItemName: Pasta Sauce
   Icon: {fileID: 21300000, guid: 22c0c0a873a1f454f9d24ae6926789b1, type: 3}

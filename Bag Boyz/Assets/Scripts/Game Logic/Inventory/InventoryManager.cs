@@ -39,7 +39,7 @@ public class InventoryManager : MonoBehaviour
             return false;
 
         items.Add(item);
-        gameLogic.CollectedItem();
+        gameLogic.CollectedItem(item);
         RefreshUI();
         return true;
     }
