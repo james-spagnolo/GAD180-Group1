@@ -51,7 +51,6 @@ public class WetFloor : MonoBehaviour
 
 
 
-
         // Checks if the Player is sliding
         // The main wet floor sliding movement logic goes here
         if (playerSliding)

@@ -15,6 +15,7 @@ TagManager:
   - NPC
   - Speech
   - Timer
+  - Checkout
   layers:
   - Default
   - TransparentFX

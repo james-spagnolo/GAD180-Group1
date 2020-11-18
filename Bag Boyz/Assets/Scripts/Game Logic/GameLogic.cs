@@ -13,6 +13,7 @@ public class GameLogic : MonoBehaviour
     public GameObject[] groceryObjects;
     public GameObject[] gameOverUI;
     public GameObject[] winScreen;
+    public GameObject[] checkoutObjects;
 
     public List<GameObject> groceryList = new List<GameObject>();
 
@@ -40,11 +41,19 @@ public class GameLogic : MonoBehaviour
     // Text displaying timeLeft on UI
     public Text timerText;
 
+    //Text displaying score on UI
+    public Text scoreText;
+
     // Amount in Seconds of timer
     public float timeLeft;
 
+    // Is it time to checkout
+    public bool checkout = false;
+
     // Items Left to Collect
     private int itemsLeft = 5;
+
+    private int score = 0;
 
     // 5 Item Names (for displaying text to UI)
     private string itemOneName;
@@ -63,6 +72,7 @@ public class GameLogic : MonoBehaviour
         groceryObjects = GameObject.FindGameObjectsWithTag("Grocery");
         gameOverUI = GameObject.FindGameObjectsWithTag("GameOver");
         winScreen = GameObject.FindGameObjectsWithTag("WinScreen");
+        checkoutObjects = GameObject.FindGameObjectsWithTag("Checkout");
 
         //Make sure all items are disabled by default
         DisableItems();
@@ -92,6 +102,7 @@ public class GameLogic : MonoBehaviour
         Time.timeScale = 1;
         DisableGameOverUI();
         DisableWinScreen();
+        DisableCheckout();
         SetupGroceryList();
         SetupRandomItemList();
 
@@ -180,8 +191,8 @@ public class GameLogic : MonoBehaviour
 
         if (itemsLeft <= 0)
         {
-            //Launch Win State
-            WinScreen();
+            //Launch Checkout State
+            Checkout();
         }
     }
 
@@ -245,11 +256,40 @@ public class GameLogic : MonoBehaviour
         }
     }
 
+    private void Checkout()
+    {
+        checkout = true;
+
+        //Enable Checkout objects
+        foreach (GameObject g in checkoutObjects)
+        {
+            g.SetActive(true);
+        }
+    }
+
+    private void DisableCheckout()
+    {
+        checkout = false;
+
+        //Disable Checkout objects
+        foreach (GameObject g in checkoutObjects)
+        {
+            g.SetActive(false);
+        }
+    }
     
-    void WinScreen()
+    public void WinScreen()
     {
         //Pause game
         Time.timeScale = 0;
+
+
+        score = (int)timeLeft * 10;
+
+        scoreText.text = "Score: " + score;
+
+        Debug.Log("Score: " + score);
+
 
         //Win State
         foreach (GameObject g in winScreen)
