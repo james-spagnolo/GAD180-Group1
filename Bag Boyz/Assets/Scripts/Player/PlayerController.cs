@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
 
     public float speed = 0.5f; //can adjust Player Speed in Unity inspector
+    public float standardSpeed;
     public float interactionTimer = 1.0f; //Adjust player interaction speed
     public bool eightDirections = false; //can turn on and off eightDirections in Unity inspector
     public bool collectingItem = false;
@@ -16,6 +17,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private bool facingLeft = true;
 
+
+    private void Awake()
+    {
+        standardSpeed = speed;
+    }
 
     // Start is called before the first frame update
     void Start()
