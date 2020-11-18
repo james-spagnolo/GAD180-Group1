@@ -16,6 +16,7 @@ TagManager:
   - Speech
   - Timer
   - Checkout
+  - Options
   layers:
   - Default
   - TransparentFX
