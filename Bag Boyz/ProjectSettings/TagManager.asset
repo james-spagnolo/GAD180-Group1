@@ -18,6 +18,7 @@ TagManager:
   - Checkout
   - Options
   - HowToPlay
+  - Waypoints
   layers:
   - Default
   - TransparentFX
