@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5526927998980628214}
   - component: {fileID: 5730564237973188646}
-  - component: {fileID: 6209532653698749457}
   m_Layer: 0
   m_Name: Chips
   m_TagString: Grocery
@@ -83,32 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6209532653698749457
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024004541977901262}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.03344345}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.17, y: 1.53}
-    newSize: {x: 2.18, y: 1.53}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.18, y: 1.4631131}
-  m_EdgeRadius: 0
 --- !u!1 &8897250086616812889
 GameObject:
   m_ObjectHideFlags: 0
