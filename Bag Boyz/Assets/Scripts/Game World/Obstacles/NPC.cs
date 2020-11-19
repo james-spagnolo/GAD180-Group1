@@ -12,6 +12,7 @@ public class NPC : MonoBehaviour
     public PlayerController player;
     public DialogueTrigger speechTrigger;
     public Text speechText;
+    public CharacterMovement npcMovement;
 
     [SerializeField] KeyCode interactKey = KeyCode.E;
 
@@ -32,7 +33,6 @@ public class NPC : MonoBehaviour
 
     private bool isInRange;
     private bool triggeredDialogue = false;
-    private bool thisInteract = false;
 
 
     private void Awake()
@@ -60,6 +60,8 @@ public class NPC : MonoBehaviour
 
             triggeredDialogue = true;
 
+            npcMovement.thisInteract = true;
+
             player.Move(0, 0);
             player.npcInteract();
         }
@@ -67,6 +69,8 @@ public class NPC : MonoBehaviour
         else if (isInRange && triggeredDialogue)
         {
             player.npcInteract();
+
+            npcMovement.thisInteract = true;
 
             if (Input.GetKeyDown(interactKey))
             {
@@ -79,6 +83,8 @@ public class NPC : MonoBehaviour
             HideSpeech();
 
             triggeredDialogue = false;
+
+            npcMovement.thisInteract = false;
         }
 
         /*

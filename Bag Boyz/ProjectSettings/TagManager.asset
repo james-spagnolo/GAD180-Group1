@@ -19,6 +19,9 @@ TagManager:
   - Options
   - HowToPlay
   - Waypoints
+  - CharityWorker
+  - OldMan
+  - Karen
   layers:
   - Default
   - TransparentFX
