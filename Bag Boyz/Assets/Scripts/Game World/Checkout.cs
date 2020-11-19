@@ -12,8 +12,9 @@ public class Checkout : MonoBehaviour
     public GameLogic gameLogic;
     public PlayerController player;
     public DialogueTrigger speechTrigger;
-    public GameObject thisCheckout;
     public Text speechText;
+
+    private GameObject thisCheckout;
 
     [SerializeField] KeyCode interactKey = KeyCode.E;
 
@@ -31,7 +32,9 @@ public class Checkout : MonoBehaviour
         speechObjects = GameObject.FindGameObjectsWithTag("Speech");
         sentencesLeft = speechTrigger.sentences;
 
-        thisCheckout.transform.GetChild(0).gameObject.SetActive(false);
+        thisCheckout = this.gameObject;
+
+        thisCheckout.transform.gameObject.SetActive(false);
     }
 
 

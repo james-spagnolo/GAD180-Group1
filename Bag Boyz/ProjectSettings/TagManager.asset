@@ -17,6 +17,7 @@ TagManager:
   - Timer
   - Checkout
   - Options
+  - HowToPlay
   layers:
   - Default
   - TransparentFX

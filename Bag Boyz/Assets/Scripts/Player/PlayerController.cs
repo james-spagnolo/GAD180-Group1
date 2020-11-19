@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private bool facingLeft = true;
 
-
     private void Awake()
     {
         standardSpeed = speed;
