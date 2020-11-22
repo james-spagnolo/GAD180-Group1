@@ -6,16 +6,21 @@ public class WetFloor : MonoBehaviour
 {
 
     // Reference to the Player
-    public PlayerController player;
+    private PlayerController player;
 
     // True when the Player is Sliding
-    public bool playerSliding = false;
+    private bool playerSliding = false;
 
-    public int slideSpeed = 2;
+    private float slideSpeed = 2;
 
     // Stores the last movement key that was pressed
     KeyCode lastKeyPressed;
 
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,7 +28,7 @@ public class WetFloor : MonoBehaviour
 
         // Checks the last movement key pressed (W, S, A or D)
         // Stores that key in the lastKeyPressed variable
-        if(playerSliding == false)
+        if (playerSliding == false)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -52,40 +57,40 @@ public class WetFloor : MonoBehaviour
 
             // Checks which movement key was last pressed
             // Forces the player to move in that direction
+
+
+
+            // Left
+            if (lastKeyPressed == KeyCode.A)
+            {
+                player.Move(-1, 0);
+                //player.transform.Translate(Vector2.left * player.speed * Time.deltaTime);
+            }
+
+
+            // Right
+            if (lastKeyPressed == KeyCode.D)
+            {
+                player.Move(1, 0);
+                //player.transform.Translate(Vector2.right * player.speed * Time.deltaTime);
+            }
+
+
+            /*
             if (lastKeyPressed == KeyCode.W)
             {
                 player.Move(0, slideSpeed);
-                player.transform.Translate(Vector2.up * player.speed * Time.deltaTime);
+                //player.transform.Translate(Vector2.up * player.speed * Time.deltaTime);
+
             }
-            if (lastKeyPressed == KeyCode.A)
-            {
-                player.Move(-slideSpeed, 0);
-                player.transform.Translate(Vector2.left * player.speed * Time.deltaTime);
-            }
+            
             if (lastKeyPressed == KeyCode.S)
             {
                 player.Move(0, -slideSpeed);
-                player.transform.Translate(Vector2.down * player.speed * Time.deltaTime);
+                //player.transform.Translate(Vector2.down * player.speed * Time.deltaTime);
             }
-            if (lastKeyPressed == KeyCode.D)
-            {
-                player.Move(slideSpeed, 0);
-                player.transform.Translate(Vector2.right * player.speed * Time.deltaTime);
-            }
+            */
         }
-
-
-        /*
-        //work around until rigidbody movement is implemented
-        if (player.gameObject.GetComponent<Renderer>().bounds.Intersects(gameObject.GetComponent<Renderer>().bounds))
-        {
-            playerSliding = true;
-        }
-        else
-        {
-            playerSliding = false;
-        }
-        */
 
     }
 
@@ -94,6 +99,9 @@ public class WetFloor : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerSliding = true;
+
+            player.SetPlayerSpeed(slideSpeed);
+
             player.canMove = false;
         }
     }
@@ -104,6 +112,9 @@ public class WetFloor : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerSliding = false;
+
+            player.SetPlayerSpeed(1 / slideSpeed);
+
             player.canMove = true;
         }
     }

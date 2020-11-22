@@ -106,6 +106,8 @@ public class GameLogic : MonoBehaviour
         SetupGroceryList();
         SetupRandomItemList();
 
+
+
         /*
         //Randomly select 5 items
         randomItemOne = groceryObjects[Random.Range(0, groceryObjects.Length)];

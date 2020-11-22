@@ -313,6 +313,12 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("InteractRight", false);
     }
 
+
+    public void SetPlayerSpeed(float speedMultiplier)
+    {
+        speed = speed * speedMultiplier;
+    }
+
 }
 
 

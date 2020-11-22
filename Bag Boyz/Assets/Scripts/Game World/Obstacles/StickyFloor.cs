@@ -6,29 +6,35 @@ public class StickyFloor : MonoBehaviour
 {
 
     //Reference to the Player
-    public PlayerController player;
+    private PlayerController player;
 
 
     //True when the player is sticky
-    public bool playerSticky = false;
+    private bool playerSticky = false;
 
 
     //Modifies player speed when sticky
     public float stickySpeed = 0.5f;
 
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
+
+
 
     // Update is called once per frame
     void Update()
     {
-        if (playerSticky)
-        {
-            player.speed = player.standardSpeed * stickySpeed;
-        }
-        else
-        {
-            player.speed = player.standardSpeed;
-        }
+        
+            if (playerSticky)
+            {
+                player.SetPlayerSpeed(stickySpeed);
+                playerSticky = false;
+            }
+        
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,6 +50,8 @@ public class StickyFloor : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerSticky = false;
+
+            player.SetPlayerSpeed(1 / stickySpeed);
         }
         
     }
