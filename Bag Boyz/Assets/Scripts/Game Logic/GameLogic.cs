@@ -241,6 +241,8 @@ public class GameLogic : MonoBehaviour
         //Pause game
         Time.timeScale = 0;
 
+        
+
         //Lose State
         foreach (GameObject g in gameOverUI)
         {
