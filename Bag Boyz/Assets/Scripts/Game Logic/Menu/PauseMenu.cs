@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 
-    public KeyCode pauseKey;
+    private KeyCode pauseKey;
 
     private GameObject[] pauseObjects;
     private GameObject[] gameUI;
@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
         gameUI = GameObject.FindGameObjectsWithTag("GameUI");
+        pauseKey = KeyCode.Escape;
         HidePaused();
     }
 
@@ -26,17 +27,23 @@ public class PauseMenu : MonoBehaviour
         //uses the p button to pause and unpause the game
         if (Input.GetKeyDown(pauseKey))
         {
+            /*
             if (Time.timeScale == 1)
             {
-                Time.timeScale = 0;
+                
                 ShowPaused();
+                Time.timeScale = 0;
             }
             else if (Time.timeScale == 0)
             {
                 Debug.Log("high");
-                Time.timeScale = 1;
                 HidePaused();
+                Time.timeScale = 1;
+                
             }
+            */
+
+            PauseControl();
         }
     }
 
