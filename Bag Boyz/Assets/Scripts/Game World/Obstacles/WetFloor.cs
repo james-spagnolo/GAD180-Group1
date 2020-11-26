@@ -11,7 +11,12 @@ public class WetFloor : MonoBehaviour
     // True when the Player is Sliding
     private bool playerSliding = false;
 
-    private float slideSpeed = 2;
+    private float slideSpeed = 2.0f;
+
+    private float maxSlideTimer = 2.0f;
+    private float slideTimer = 2.0f;
+
+    private float pad = 5.0f;
 
     // Stores the last movement key that was pressed
     KeyCode lastKeyPressed;
@@ -30,6 +35,7 @@ public class WetFloor : MonoBehaviour
         // Stores that key in the lastKeyPressed variable
         if (playerSliding == false)
         {
+            
             if (Input.GetKeyDown(KeyCode.W))
             {
                 lastKeyPressed = KeyCode.W;
@@ -46,6 +52,7 @@ public class WetFloor : MonoBehaviour
             {
                 lastKeyPressed = KeyCode.D;
             }
+            
         }
 
 
@@ -54,6 +61,17 @@ public class WetFloor : MonoBehaviour
         // The main wet floor sliding movement logic goes here
         if (playerSliding)
         {
+
+            if (slideTimer > 0)
+            {
+                slideTimer -= Time.deltaTime;
+            }
+            else
+            {
+                ResetPlayerPosition();
+                slideTimer = maxSlideTimer;
+            }
+            
 
             // Checks which movement key was last pressed
             // Forces the player to move in that direction
@@ -69,30 +87,53 @@ public class WetFloor : MonoBehaviour
 
 
             // Right
-            if (lastKeyPressed == KeyCode.D)
+            else if (lastKeyPressed == KeyCode.D)
             {
                 player.Move(1, 0);
                 //player.transform.Translate(Vector2.right * player.speed * Time.deltaTime);
             }
 
 
-            /*
-            if (lastKeyPressed == KeyCode.W)
+           
+            else if (lastKeyPressed == KeyCode.W)
             {
-                player.Move(0, slideSpeed);
+                //player.Move(0, slideSpeed);
                 //player.transform.Translate(Vector2.up * player.speed * Time.deltaTime);
 
             }
             
-            if (lastKeyPressed == KeyCode.S)
+            else if (lastKeyPressed == KeyCode.S)
             {
-                player.Move(0, -slideSpeed);
+                //player.Move(0, -slideSpeed);
                 //player.transform.Translate(Vector2.down * player.speed * Time.deltaTime);
             }
-            */
+            
         }
 
     }
+
+    
+    void ResetPlayerPosition()
+    {
+        if (lastKeyPressed == KeyCode.W)
+        {
+            player.transform.position = new Vector2(this.transform.position.x + pad, this.transform.position.y + pad);
+        }
+        else if (lastKeyPressed == KeyCode.S)
+        {
+            player.transform.position = new Vector2(this.transform.position.x + pad, this.transform.position.y + pad);
+        }
+        else if (lastKeyPressed == KeyCode.A)
+        {
+            player.transform.position = new Vector2(this.transform.position.x + pad, this.transform.position.y + pad);
+        }
+        else if (lastKeyPressed == KeyCode.D)
+        {
+            player.transform.position = new Vector2(this.transform.position.x + pad, this.transform.position.y + pad);
+        }
+
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
