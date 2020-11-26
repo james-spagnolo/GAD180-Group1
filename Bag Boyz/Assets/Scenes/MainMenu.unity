@@ -2139,10 +2139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialSprites:
-  - {fileID: 21300000, guid: 8d84bcc2e0172574994c27d527c78b36, type: 3}
-  - {fileID: 21300000, guid: 7eaefc3d959fe40439a5a21e401d87d7, type: 3}
-  - {fileID: 21300000, guid: 19c348664ee98404abdca85a22980422, type: 3}
-  - {fileID: 21300000, guid: 00745ecb49bc0854e947b0f0eada1c81, type: 3}
+  - {fileID: 21300000, guid: 9670ff5040918ff458696218c8ca31cb, type: 3}
+  - {fileID: 21300000, guid: e5d5c68cdcf24864b8338e05bf19b7ce, type: 3}
+  - {fileID: 21300000, guid: e5d5c68cdcf24864b8338e05bf19b7ce, type: 3}
+  - {fileID: 21300000, guid: e5d5c68cdcf24864b8338e05bf19b7ce, type: 3}
 --- !u!1 &1265489117
 GameObject:
   m_ObjectHideFlags: 0

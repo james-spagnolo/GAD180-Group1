@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 199603951}
   - component: {fileID: 199603950}
   - component: {fileID: 199603949}
+  - component: {fileID: 199603956}
   m_Layer: 0
   m_Name: OldMan
   m_TagString: Untagged
@@ -559,11 +560,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199603948}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5200005, y: -4.36, z: 33.254105}
+  m_LocalPosition: {x: 21.85, y: 2.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1648746080}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &199603955
 MonoBehaviour:
@@ -579,6 +580,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   thisInteract: 0
+--- !u!95 &199603956
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199603948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 94f33416306b0f84194713c633a6783b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &216730380 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1682413562843007723, guid: dc92bc7ddb308b7499d48b29f42892fc,
@@ -1568,7 +1588,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.88, y: 0, z: 0}
+  m_LocalPosition: {x: -2.02, y: -16.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1257820738}
@@ -5966,7 +5986,6 @@ Transform:
   - {fileID: 111359978}
   - {fileID: 823375680}
   - {fileID: 340486508}
-  - {fileID: 199603954}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
