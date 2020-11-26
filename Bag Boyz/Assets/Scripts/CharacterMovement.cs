@@ -5,6 +5,8 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
 
+    private Animator anim;
+
 	public float speed;
     public bool thisInteract = false;
 
@@ -14,6 +16,8 @@ public class CharacterMovement : MonoBehaviour
 	private GameObject thisObject;
 
     private string thisNPC;
+
+    private bool facingLeft = false;
 
 
     void Start()
@@ -34,10 +38,14 @@ public class CharacterMovement : MonoBehaviour
         }
 
 
-      Wpoints = GameObject.FindGameObjectWithTag(thisNPC).GetComponent<Waypoints>();
+        Wpoints = GameObject.FindGameObjectWithTag(thisNPC).GetComponent<Waypoints>();
       
 
-      thisObject = this.gameObject;
+        thisObject = this.gameObject;
+
+        anim = this.gameObject.GetComponent<Animator>();
+
+
 
     }
 
@@ -62,11 +70,45 @@ public class CharacterMovement : MonoBehaviour
                     waypointIndex = 0;
                 }
             }
+
+            if (dir.x > 0)
+            {
+                TurnOffAnimations();
+                anim.SetBool("Walking Right", true);
+                facingLeft = true;
+            }
+            else if (dir.x < 0)
+            {
+                TurnOffAnimations();
+                anim.SetBool("Walking Left", true);
+                facingLeft = false;
+            }
+            else if (dir.x == 0)
+            {
+                TurnOffAnimations();
+
+                if (facingLeft)
+                {
+                    anim.SetBool("Idle Left", true);
+                }
+                else
+                {
+                    anim.SetBool("Idle Right", true);
+                }
+            }
+
         }
         
-        
+    }
 
-        
-   }
+    void TurnOffAnimations()
+    {
+        anim.SetBool("Walking Left", false);
+        anim.SetBool("Walking Right", false);
+        anim.SetBool("Idle Left", false);
+        anim.SetBool("Idle Right", false);
+    }
+
+
 }
 
