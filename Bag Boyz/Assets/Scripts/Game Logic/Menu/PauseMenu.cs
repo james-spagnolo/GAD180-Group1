@@ -11,13 +11,21 @@ public class PauseMenu : MonoBehaviour
     private GameObject[] pauseObjects;
     private GameObject[] gameUI;
 
+    private AudioController gameAudio;
+
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
+
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
         gameUI = GameObject.FindGameObjectsWithTag("GameUI");
+
+        gameAudio = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
+
         pauseKey = KeyCode.Escape;
+        
         HidePaused();
     }
 
@@ -60,11 +68,15 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 0;
             ShowPaused();
+
+            gameAudio.PauseAudio();
         }
         else if(Time.timeScale == 0)
         {
             Time.timeScale = 1;
             HidePaused();
+
+            gameAudio.ResumeAudio();
         }
     }
 

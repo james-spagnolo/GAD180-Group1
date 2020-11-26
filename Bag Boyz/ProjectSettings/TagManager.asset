@@ -22,6 +22,7 @@ TagManager:
   - CharityWorker
   - OldMan
   - Karen
+  - Audio
   layers:
   - Default
   - TransparentFX
