@@ -35,6 +35,8 @@ public class GameLogic : MonoBehaviour
     public GameObject randomItemFour;
     public GameObject randomItemFive;
 
+    private AudioController audioController;
+
     // Text displayed on Shopping List on UI
     public Text shoppingText;
 
@@ -49,6 +51,8 @@ public class GameLogic : MonoBehaviour
 
     // Is it time to checkout
     public bool checkout = false;
+
+    private bool playSound = false;
 
     // Items Left to Collect
     private int itemsLeft = 5;
@@ -99,6 +103,8 @@ public class GameLogic : MonoBehaviour
 
     private void Start()
     {
+        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
+
         Time.timeScale = 1;
         DisableGameOverUI();
         DisableWinScreen();
@@ -185,6 +191,8 @@ public class GameLogic : MonoBehaviour
 
     public void CollectedItem(Item itemCollected)
     {
+        audioController.PlayCollectSound();
+
         itemsLeft -= 1;
 
         CheckItemCollected(itemCollected);
@@ -241,6 +249,13 @@ public class GameLogic : MonoBehaviour
         //Pause game
         Time.timeScale = 0;
 
+        audioController.PauseAudio();
+
+        if (playSound == false)
+        {
+            audioController.PlayGameOverSound();
+            playSound = true;
+        }
         
 
         //Lose State
@@ -287,6 +302,8 @@ public class GameLogic : MonoBehaviour
         //Pause game
         Time.timeScale = 0;
 
+        audioController.PauseAudio();
+        audioController.PlayWinSound();
 
         score = (int)timeLeft * 10;
 
