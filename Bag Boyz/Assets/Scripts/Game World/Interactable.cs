@@ -6,7 +6,8 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    
+
+    public string itemName;
 
     [SerializeField] Item item;
     [SerializeField] KeyCode interactKey = KeyCode.E;
@@ -19,6 +20,10 @@ public class Interactable : MonoBehaviour
     private bool thisInteract = false;
 
     private float interactionTimer;
+
+    
+
+    
 
     
     
@@ -39,6 +44,10 @@ public class Interactable : MonoBehaviour
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
 
         interactionTimer = player.interactionTimer;
+
+        itemName = item.name;
+
+        
     }
 
     private void Update()

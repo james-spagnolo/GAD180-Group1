@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  itemName: Ketchup
   item: {fileID: 11400000, guid: 3e4f5aca02271c5459feecf4e71cda5e, type: 2}
-  inventory: {fileID: 0}
   interactKey: 101

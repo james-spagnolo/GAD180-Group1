@@ -61,9 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  itemName: CapNCrunch
   item: {fileID: 11400000, guid: e34751cb739a57e4883555874729ffaa, type: 2}
-  inventory: {fileID: 0}
   interactKey: 101
 --- !u!122 &6373235240038785926
 Halo:

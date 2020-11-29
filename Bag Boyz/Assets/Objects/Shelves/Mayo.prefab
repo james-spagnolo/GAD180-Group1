@@ -143,9 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  itemName: Mayo
   item: {fileID: 11400000, guid: 6b1fc4ab7e888d94399fa71f14aebeef, type: 2}
-  inventory: {fileID: 0}
   interactKey: 101
 --- !u!122 &4040925479467636566
 Halo:

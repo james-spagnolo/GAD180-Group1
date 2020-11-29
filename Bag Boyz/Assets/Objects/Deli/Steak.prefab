@@ -92,9 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  itemName: Steak
   item: {fileID: 11400000, guid: 5c245d87065ad5242b2a67bc00ce096b, type: 2}
-  inventory: {fileID: 0}
   interactKey: 101
 --- !u!122 &13462489398915543
 Halo:

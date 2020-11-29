@@ -61,9 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  itemName: Fish
   item: {fileID: 11400000, guid: 032a5adec7c9a4b4db253dd0e3ade192, type: 2}
-  inventory: {fileID: 0}
   interactKey: 101
 --- !u!122 &5179597048620747536
 Halo:

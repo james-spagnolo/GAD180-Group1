@@ -170,9 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  itemName: Orange
   item: {fileID: 11400000, guid: 28e9a2254e76fe94b92771b26fcb7d9e, type: 2}
-  inventory: {fileID: 0}
   interactKey: 101
 --- !u!122 &873007664458434740
 Halo:

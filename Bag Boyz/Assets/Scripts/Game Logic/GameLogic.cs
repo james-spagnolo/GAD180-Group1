@@ -15,7 +15,7 @@ public class GameLogic : MonoBehaviour
     public GameObject[] winScreen;
     public GameObject[] checkoutObjects;
 
-    public List<GameObject> groceryList = new List<GameObject>();
+    public List<GameObject> itemPool = new List<GameObject>();
 
     public GameObject[] shoppingList;
 
@@ -28,12 +28,16 @@ public class GameLogic : MonoBehaviour
     public GameObject itemFive;
     */
 
+    public List<GameObject> randomItems = new List<GameObject>();
+
+    /*
     //Randomly Set 5 items
     public GameObject randomItemOne;
     public GameObject randomItemTwo;
     public GameObject randomItemThree;
     public GameObject randomItemFour;
     public GameObject randomItemFive;
+    */
 
     private AudioController audioController;
 
@@ -55,9 +59,13 @@ public class GameLogic : MonoBehaviour
     private bool playSound = false;
 
     // Items Left to Collect
-    private int itemsLeft = 5;
+    private int itemsLeft;
+
+    private int itemsToCollect = 5;
 
     private int score = 0;
+
+    private List<string> itemNames = new List<string>();
 
     // 5 Item Names (for displaying text to UI)
     private string itemOneName;
@@ -65,6 +73,8 @@ public class GameLogic : MonoBehaviour
     private string itemThreeName;
     private string itemFourName;
     private string itemFiveName;
+
+    private string randomItemsList;
 
 
 
@@ -106,6 +116,9 @@ public class GameLogic : MonoBehaviour
         audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
 
         Time.timeScale = 1;
+
+        itemsLeft = itemsToCollect;
+
         DisableGameOverUI();
         DisableWinScreen();
         DisableCheckout();
@@ -151,16 +164,49 @@ public class GameLogic : MonoBehaviour
 
     private void SetupRandomItemList()
     {
-        randomItemOne = groceryList[Random.Range(0, groceryList.Count)];
-        groceryList.Remove(randomItemOne);
-        randomItemTwo = groceryList[Random.Range(0, groceryList.Count)];
-        groceryList.Remove(randomItemTwo);
-        randomItemThree = groceryList[Random.Range(0, groceryList.Count)];
-        groceryList.Remove(randomItemThree);
-        randomItemFour = groceryList[Random.Range(0, groceryList.Count)];
-        groceryList.Remove(randomItemFour);
-        randomItemFive = groceryList[Random.Range(0, groceryList.Count)];
-        groceryList.Remove(randomItemFive);
+
+
+        // Generate and add items and their names to the lists
+        // itemsToCollect is the amount of items generated
+        for (int item = 0; item < itemsToCollect; item++)
+        {
+
+
+            //Pick a random item from the grocery list
+            GameObject collectionItem = itemPool[Random.Range(0, itemPool.Count)];
+
+            //Get that items name
+            string itemName = collectionItem.transform.GetChild(0).GetComponent<Interactable>().itemName;
+
+            //Debug.Log("itemName: " + itemName);
+            
+            
+            randomItems.Add(collectionItem); //Add the item to randomItems
+                 
+            
+            itemNames.Add(itemName);  //Add the name to item names
+
+
+            itemPool.Remove(collectionItem); //Removes the item from list of items to pick from
+
+
+            collectionItem.transform.GetChild(0).gameObject.SetActive(true); //Sets this object to be interactable
+
+            
+
+        }
+
+        /*
+        randomItemOne = itemPool[Random.Range(0, itemPool.Count)];
+        itemPool.Remove(randomItemOne);
+        randomItemTwo = itemPool[Random.Range(0, itemPool.Count)];
+        itemPool.Remove(randomItemTwo);
+        randomItemThree = itemPool[Random.Range(0, itemPool.Count)];
+        itemPool.Remove(randomItemThree);
+        randomItemFour = itemPool[Random.Range(0, itemPool.Count)];
+        itemPool.Remove(randomItemFour);
+        randomItemFive = itemPool[Random.Range(0, itemPool.Count)];
+        itemPool.Remove(randomItemFive);
 
         //Activate Interaction for 5 items
         randomItemOne.transform.GetChild(0).gameObject.SetActive(true);
@@ -169,14 +215,18 @@ public class GameLogic : MonoBehaviour
         randomItemFour.transform.GetChild(0).gameObject.SetActive(true);
         randomItemFive.transform.GetChild(0).gameObject.SetActive(true);
 
-        //Setup Names for Items
-        itemOneName = randomItemOne.name;
-        itemTwoName = randomItemTwo.name;
-        itemThreeName = randomItemThree.name;
-        itemFourName = randomItemFour.name;
-        itemFiveName = randomItemFive.name;
+        */
 
-        shoppingText.text = itemOneName + "\n" + itemTwoName + "\n" + itemThreeName + "\n" + itemFourName + "\n" + itemFiveName;
+        itemOneName = itemNames[0];
+        itemTwoName = itemNames[1];
+        itemThreeName = itemNames[2];
+        itemFourName = itemNames[3];
+        itemFiveName = itemNames[4];
+
+
+        randomItemsList = itemOneName + "\n" + itemTwoName + "\n" + itemThreeName + "\n" + itemFourName + "\n" + itemFiveName;
+
+        shoppingText.text = randomItemsList;
     }
 
 
@@ -184,7 +234,7 @@ public class GameLogic : MonoBehaviour
     {
         foreach(GameObject groceryObject in GameObject.FindGameObjectsWithTag("Grocery"))
         {
-            groceryList.Add(groceryObject);
+            itemPool.Add(groceryObject);
         }
     }
 
@@ -234,6 +284,8 @@ public class GameLogic : MonoBehaviour
             Debug.Log("Collection Error");
         }
     }
+
+
 
     void DisableItems()
     {

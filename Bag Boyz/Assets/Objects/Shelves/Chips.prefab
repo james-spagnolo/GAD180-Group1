@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  itemName: Chips
   item: {fileID: 11400000, guid: f6c8ad5575527d84c95fa117f7428766, type: 2}
-  inventory: {fileID: 0}
   interactKey: 101

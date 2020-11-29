@@ -61,9 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  itemName: Carrot
   item: {fileID: 11400000, guid: c3af85ab6678b734aa7d462546d67e12, type: 2}
-  inventory: {fileID: 0}
   interactKey: 101
 --- !u!122 &4017381508626860049
 Halo:

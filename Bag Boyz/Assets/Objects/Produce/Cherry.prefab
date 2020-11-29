@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: Cherry
   item: {fileID: 11400000, guid: 2b7da03088a8b494da7cafe551b3b436, type: 2}
   interactKey: 101
 --- !u!122 &1332624288

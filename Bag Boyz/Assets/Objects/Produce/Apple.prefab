@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: Apple
   item: {fileID: 11400000, guid: 817d45221a70e184f85583eaf90f8d35, type: 2}
   interactKey: 101
 --- !u!122 &7593010693799867972

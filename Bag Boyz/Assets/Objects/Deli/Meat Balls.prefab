@@ -61,9 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  itemName: MeatBalls
   item: {fileID: 11400000, guid: 095a35bdbd9fac94885cb7752252c217, type: 2}
-  inventory: {fileID: 0}
   interactKey: 101
 --- !u!122 &1551853066011329831
 Halo:

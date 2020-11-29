@@ -61,9 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9d4dbc09dc98147b8f8e30f4695f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  itemName: Champagne
   item: {fileID: 11400000, guid: 41e932d17e9017d40a63e3c00490b2a0, type: 2}
-  inventory: {fileID: 0}
   interactKey: 101
 --- !u!122 &2877717675982365908
 Halo:

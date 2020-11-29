@@ -5,25 +5,25 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
-    [SerializeField] public List<Transform> produceTransforms;
-    [SerializeField] public List<GameObject> produceObjects;
+    [SerializeField] public List<Transform> spawnTransforms;
+    [SerializeField] public List<GameObject> spawnObjects;
 
     private int totalObjects;
 
     // Start is called before the first frame update
     void Start()
     {
-        totalObjects = produceObjects.Count;
+        totalObjects = spawnObjects.Count;
 
         for (int i = 0; i < totalObjects; i++)
         {
-            GameObject prefab = produceObjects[Random.Range(0, produceObjects.Count)];
-            Transform position = produceTransforms[Random.Range(0, produceTransforms.Count)];
+            GameObject prefab = spawnObjects[Random.Range(0, spawnObjects.Count)];
+            Transform position = spawnTransforms[Random.Range(0, spawnTransforms.Count)];
 
             Instantiate(prefab, position);
 
-            produceObjects.Remove(prefab);
-            produceTransforms.Remove(position);
+            spawnObjects.Remove(prefab);
+            spawnTransforms.Remove(position);
             
         }
     }
