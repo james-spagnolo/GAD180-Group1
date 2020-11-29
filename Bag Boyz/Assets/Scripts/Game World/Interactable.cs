@@ -6,12 +6,14 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    public PlayerController player;
+    
 
     [SerializeField] Item item;
-    [SerializeField] InventoryManager inventory;
     [SerializeField] KeyCode interactKey = KeyCode.E;
-    
+
+    private PlayerController player;
+    private InventoryManager inventory;
+
     private bool isInRange;
     private bool isCollected;
     private bool thisInteract = false;
@@ -33,6 +35,9 @@ public class Interactable : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
+
         interactionTimer = player.interactionTimer;
     }
 

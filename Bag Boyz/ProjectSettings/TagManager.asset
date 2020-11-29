@@ -23,6 +23,7 @@ TagManager:
   - OldMan
   - Karen
   - Audio
+  - Inventory
   layers:
   - Default
   - TransparentFX

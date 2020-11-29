@@ -65,7 +65,6 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: a6690078f2835454080216f6956c5419, type: 2}
   inventory: {fileID: 0}
   interactKey: 101
-  interactionTimer: 1
 --- !u!122 &946935454
 Halo:
   m_ObjectHideFlags: 0
@@ -104,8 +103,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4608680040139597114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.40751085, y: -2.515748, z: 0}
-  m_LocalScale: {x: 0.41666663, y: 0.42863208, z: 0.4768532}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6721444900281148599}
   m_Father: {fileID: 0}
