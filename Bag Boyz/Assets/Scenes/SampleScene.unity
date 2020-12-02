@@ -7574,11 +7574,6 @@ MonoBehaviour:
   itemPool: []
   shoppingList: []
   randomItems: []
-  randomItemOne: {fileID: 1826095317}
-  randomItemTwo: {fileID: 1294341892}
-  randomItemThree: {fileID: 0}
-  randomItemFour: {fileID: 0}
-  randomItemFive: {fileID: 0}
   shoppingText: {fileID: 1537188113}
   timerText: {fileID: 1915075310}
   scoreText: {fileID: 584926176}

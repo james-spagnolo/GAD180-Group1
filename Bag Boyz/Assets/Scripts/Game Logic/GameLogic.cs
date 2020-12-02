@@ -310,6 +310,7 @@ public class GameLogic : MonoBehaviour
         }
         
 
+
         //Lose State
         foreach (GameObject g in gameOverUI)
         {
