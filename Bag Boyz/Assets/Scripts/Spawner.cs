@@ -5,6 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
+    public bool removeObjectFromList;
+
     [SerializeField] public List<Transform> spawnTransforms;
     [SerializeField] public List<GameObject> spawnObjects;
 
@@ -12,6 +14,22 @@ public class Spawner : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
+    {
+        
+
+        if (removeObjectFromList)
+        {
+            SpawnAndRemove();
+        }
+        else
+        {
+            SpawnAndKeep();
+        }
+        
+    }
+
+
+    void SpawnAndRemove()
     {
         totalObjects = spawnObjects.Count;
 
@@ -24,9 +42,28 @@ public class Spawner : MonoBehaviour
 
             spawnObjects.Remove(prefab);
             spawnTransforms.Remove(position);
-            
+
         }
     }
+
+
+    void SpawnAndKeep()
+    {
+        totalObjects = spawnTransforms.Count;
+
+        for (int i = 0; i < totalObjects; i++)
+        {
+            GameObject prefab = spawnObjects[Random.Range(0, spawnObjects.Count)];
+            Transform position = spawnTransforms[Random.Range(0, spawnTransforms.Count)];
+
+            Instantiate(prefab, position);
+
+            //spawnObjects.Remove(prefab);
+            spawnTransforms.Remove(position);
+
+        }
+    }
+
 
     // Update is called once per frame
     void Update()

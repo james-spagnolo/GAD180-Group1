@@ -13,7 +13,7 @@ public class GameLogic : MonoBehaviour
     private GameObject[] groceryObjects;
     private GameObject[] gameOverUI;
     private GameObject[] winScreen;
-    private GameObject[] checkoutObjects;
+    public GameObject[] checkoutObjects;
 
     private List<GameObject> itemPool = new List<GameObject>();
 
@@ -89,6 +89,8 @@ public class GameLogic : MonoBehaviour
         gameOverUI = GameObject.FindGameObjectsWithTag("GameOver");
         winScreen = GameObject.FindGameObjectsWithTag("WinScreen");
         checkoutObjects = GameObject.FindGameObjectsWithTag("Checkout");
+
+        Debug.Log("Checkout Objects: " + checkoutObjects.Length);
 
         //Make sure all items are disabled by default
         DisableItems();
@@ -231,11 +233,31 @@ public class GameLogic : MonoBehaviour
         {
 
             case 0: break;
-            case 1: itemOneName = itemNames[0]; break;
-            case 2: itemTwoName = itemNames[1]; break;
-            case 3: itemThreeName = itemNames[2]; break;
-            case 4: itemFourName = itemNames[3]; break;
-            case 5: itemFiveName = itemNames[4]; break;
+            case 1: 
+                itemOneName = itemNames[0]; 
+                break;
+            case 2:
+                itemOneName = itemNames[0];
+                itemTwoName = itemNames[1]; 
+                break;
+            case 3:
+                itemOneName = itemNames[0];
+                itemTwoName = itemNames[1];
+                itemThreeName = itemNames[2]; 
+                break;
+            case 4:
+                itemOneName = itemNames[0];
+                itemTwoName = itemNames[1];
+                itemThreeName = itemNames[2];
+                itemFourName = itemNames[3]; 
+                break;
+            case 5:
+                itemOneName = itemNames[0];
+                itemTwoName = itemNames[1];
+                itemThreeName = itemNames[2];
+                itemFourName = itemNames[3];
+                itemFiveName = itemNames[4]; 
+                break;
             default: break;
         }
         /*
@@ -357,6 +379,8 @@ public class GameLogic : MonoBehaviour
         //Enable Checkout objects
         foreach (GameObject g in checkoutObjects)
         {
+            //Debug.Log("CheckoutObjects");
+
             g.SetActive(true);
         }
     }

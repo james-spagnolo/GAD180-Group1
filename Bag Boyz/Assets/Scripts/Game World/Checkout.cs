@@ -10,11 +10,11 @@ public class Checkout : MonoBehaviour
     public string[] npcName;
 
     public GameLogic gameLogic;
-    public PlayerController player;
     public DialogueTrigger speechTrigger;
     public Text speechText;
 
     private GameObject thisCheckout;
+    private PlayerController player;
 
     [SerializeField] KeyCode interactKey = KeyCode.E;
 
@@ -34,7 +34,9 @@ public class Checkout : MonoBehaviour
 
         thisCheckout = this.gameObject;
 
-        thisCheckout.transform.gameObject.SetActive(false);
+        //thisCheckout.transform.gameObject.SetActive(false);
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
 

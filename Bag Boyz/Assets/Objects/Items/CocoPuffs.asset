@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b591ec17fd54747a3d974252e0b475, type: 3}
   m_Name: CocoPuffs
   m_EditorClassIdentifier: 
-  ItemName: CocoPuffs
+  ItemName: Coco Puffs
   Icon: {fileID: 21300000, guid: 2ffb8bc3b6421a54b88b8e0a871820dc, type: 3}
