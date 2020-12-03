@@ -24,6 +24,7 @@ TagManager:
   - Karen
   - Audio
   - Inventory
+  - Controls
   layers:
   - Default
   - TransparentFX

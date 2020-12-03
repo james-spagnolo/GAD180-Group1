@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
             eightDirections = !eightDirections;
         }
 
+        
 
         if (canMove)
         {

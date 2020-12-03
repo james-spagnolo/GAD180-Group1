@@ -8,8 +8,9 @@ public class MainMenu : MonoBehaviour
 
     public AudioSource menuMusic;
 
-    public GameObject[] options;
-    public GameObject[] instructions;
+    private GameObject[] options;
+    private GameObject[] instructions;
+    private GameObject[] controls;
 
 
     private void Start()
@@ -19,9 +20,11 @@ public class MainMenu : MonoBehaviour
 
         options = GameObject.FindGameObjectsWithTag("Options");
         instructions = GameObject.FindGameObjectsWithTag("HowToPlay");
+        controls = GameObject.FindGameObjectsWithTag("Controls");
 
         HideOptions();
         HideInstructions();
+        HideControls();
     }
 
     
@@ -60,6 +63,28 @@ public class MainMenu : MonoBehaviour
     public void HideInstructions()
     {
         foreach (GameObject g in instructions)
+        {
+            g.SetActive(false);
+        }
+    }
+
+
+    public void DisplayControls()
+    {
+        HideInstructions();
+        HideOptions();
+
+        foreach (GameObject g in controls)
+        {
+            g.SetActive(true);
+        }
+    }
+
+
+    public void HideControls()
+    {
+        
+        foreach (GameObject g in controls)
         {
             g.SetActive(false);
         }
