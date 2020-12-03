@@ -7,7 +7,10 @@ public class HowToPlay : MonoBehaviour
 {
 
     public Sprite[] tutorialSprites;
+
     private Image tutorialImage;
+    private Transform nextButton;
+    private Transform previousButton;
 
     private int currentTutorial;
 
@@ -16,14 +19,19 @@ public class HowToPlay : MonoBehaviour
     {
         currentTutorial = 0;
 
-        tutorialImage = this.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>();
+        tutorialImage = this.GetComponent<Image>();
         tutorialImage.sprite = tutorialSprites[currentTutorial];
+
+        nextButton = transform.Find("NextImageButton");
+        previousButton = transform.Find("PreviousImageButton");
     }
 
     // Update is called once per frame
     void Update()
     {
         tutorialImage.sprite = tutorialSprites[currentTutorial];
+
+        CheckButtons();
     }
 
 
@@ -45,6 +53,29 @@ public class HowToPlay : MonoBehaviour
         else
         {
             currentTutorial = 0;
+        }
+    }
+
+
+    private void CheckButtons()
+    {
+
+        if (currentTutorial == 0)
+        {
+            previousButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            previousButton.gameObject.SetActive(true);
+        }
+
+        if (currentTutorial == (tutorialSprites.Length - 1))
+        {
+            nextButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            nextButton.gameObject.SetActive(true);
         }
     }
 }

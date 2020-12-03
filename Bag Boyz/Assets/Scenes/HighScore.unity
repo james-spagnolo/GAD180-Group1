@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 213647815}
   - component: {fileID: 213647816}
   m_Layer: 5
-  m_Name: HighScoreTable
+  m_Name: HighscoreTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 213647814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1f0020c6786ff44af3131aceaf9ef4, type: 3}
+  m_Script: {fileID: 11500000, guid: f281e6fa0c3c89947a22aac9de1bc66d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &305517741
@@ -593,7 +593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404812587}
   m_Layer: 5
-  m_Name: HighScoreEntryTemplate
+  m_Name: HighscoreEntryTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1014,7 +1014,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1755519035}
   m_Layer: 5
-  m_Name: HighScoreEntryContainer
+  m_Name: HighscoreEntryContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
