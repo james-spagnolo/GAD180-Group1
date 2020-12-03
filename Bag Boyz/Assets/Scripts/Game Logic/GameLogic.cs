@@ -9,15 +9,15 @@ using Random = UnityEngine.Random;
 public class GameLogic : MonoBehaviour
 {
 
-    public GameObject[] interactionObjects;
-    public GameObject[] groceryObjects;
-    public GameObject[] gameOverUI;
-    public GameObject[] winScreen;
-    public GameObject[] checkoutObjects;
+    private GameObject[] interactionObjects;
+    private GameObject[] groceryObjects;
+    private GameObject[] gameOverUI;
+    private GameObject[] winScreen;
+    private GameObject[] checkoutObjects;
 
-    public List<GameObject> itemPool = new List<GameObject>();
+    private List<GameObject> itemPool = new List<GameObject>();
 
-    public GameObject[] shoppingList;
+    private GameObject[] shoppingList;
 
     /*
     // Set 5 items in Unity Inspector
@@ -50,6 +50,8 @@ public class GameLogic : MonoBehaviour
     //Text displaying score on UI
     public Text scoreText;
 
+    public Text highscoreText;
+
     // Amount in Seconds of timer
     public float timeLeft;
 
@@ -61,7 +63,7 @@ public class GameLogic : MonoBehaviour
     // Items Left to Collect
     private int itemsLeft;
 
-    private int itemsToCollect = 5;
+    public int itemsToCollect = 5;
 
     private int score = 0;
 
@@ -80,7 +82,7 @@ public class GameLogic : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void OnValidate()
+    void Awake()
     {
         interactionObjects = GameObject.FindGameObjectsWithTag("Interaction");
         groceryObjects = GameObject.FindGameObjectsWithTag("Grocery");
@@ -118,6 +120,8 @@ public class GameLogic : MonoBehaviour
         Time.timeScale = 1;
 
         itemsLeft = itemsToCollect;
+
+        highscoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
 
         DisableGameOverUI();
         DisableWinScreen();
@@ -159,6 +163,12 @@ public class GameLogic : MonoBehaviour
         int roundTimeLeft = (int)Math.Round(timeLeft);
         string timeLeftText = roundTimeLeft.ToString();
         timerText.text = timeLeftText;
+
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetScore();
+        }
     }
 
 
@@ -217,12 +227,24 @@ public class GameLogic : MonoBehaviour
 
         */
 
+        switch (itemNames.Count)
+        {
+
+            case 0: break;
+            case 1: itemOneName = itemNames[0]; break;
+            case 2: itemTwoName = itemNames[1]; break;
+            case 3: itemThreeName = itemNames[2]; break;
+            case 4: itemFourName = itemNames[3]; break;
+            case 5: itemFiveName = itemNames[4]; break;
+            default: break;
+        }
+        /*
         itemOneName = itemNames[0];
         itemTwoName = itemNames[1];
         itemThreeName = itemNames[2];
         itemFourName = itemNames[3];
         itemFiveName = itemNames[4];
-
+        */
 
         randomItemsList = itemOneName + "\n" + itemTwoName + "\n" + itemThreeName + "\n" + itemFourName + "\n" + itemFiveName;
 
@@ -358,12 +380,7 @@ public class GameLogic : MonoBehaviour
         audioController.PauseAudio();
         audioController.PlayWinSound();
 
-        score = (int)timeLeft * 10;
-
-        scoreText.text = "Score: " + score;
-
-        Debug.Log("Score: " + score);
-
+        CheckScore();
 
         //Win State
         foreach (GameObject g in winScreen)
@@ -380,6 +397,31 @@ public class GameLogic : MonoBehaviour
             g.SetActive(false);
         }
     }
+
+
+
+    void CheckScore()
+    {
+
+        score = (int)timeLeft * 10;
+
+        scoreText.text = "Score: " + score;
+
+
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            highscoreText.text = "High Score: " + score.ToString();
+        }
+
+        Debug.Log("Score: " + score);
+    }
+
+
+    public void ResetScore()
+    {
+        PlayerPrefs.DeleteKey("HighScore");
+    }    
 
 
 }
