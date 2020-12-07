@@ -17,9 +17,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private bool facingLeft = true;
 
+    private KeyCode moveLeft;
+
     private void Awake()
     {
         standardSpeed = speed;
+
+        
     }
 
     // Start is called before the first frame update
@@ -32,9 +36,13 @@ public class PlayerController : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
     }
 
+    
+
     // Update is called once per frame
     void FixedUpdate()
     {
+        moveLeft = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "A"));
+
         //Toggle 4D / 8D Movement by Pressing 1
         if (Input.GetKey("1"))
         {
@@ -73,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
 
                     //If the A key is pressed
-                    else if (Input.GetKey(KeyCode.A))
+                    else if (Input.GetKey(moveLeft))
                     {
                         //Remove any excess animations
                         TurnOffAnimations();
