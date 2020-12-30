@@ -10,7 +10,9 @@ public class Interactable : MonoBehaviour
     public string itemName;
 
     [SerializeField] Item item;
-    [SerializeField] KeyCode interactKey = KeyCode.E;
+
+
+    private KeyCode interactKey;
 
     private PlayerController player;
     private InventoryManager inventory;
@@ -47,6 +49,7 @@ public class Interactable : MonoBehaviour
 
         itemName = item.name;
 
+        interactKey = ControlsManager.CM.interact;
         
     }
 

@@ -89,4 +89,10 @@ public class MainMenu : MonoBehaviour
             g.SetActive(false);
         }
     }
+
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

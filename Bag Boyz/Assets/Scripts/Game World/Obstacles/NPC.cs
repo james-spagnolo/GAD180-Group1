@@ -14,20 +14,8 @@ public class NPC : MonoBehaviour
     public Text speechText;
     public CharacterMovement npcMovement;
 
-    [SerializeField] KeyCode interactKey = KeyCode.E;
+    private KeyCode interactKey;
 
-    /*
-    [System.Serializable]
-    public enum TypeOfNPC
-    {
-        Employee1,
-        Employee2,
-        Employee3,
-        Employee4,
-    }
-
-    public TypeOfNPC thisNPC;
-    */
 
     public GameObject[] speechObjects;
 
@@ -38,12 +26,15 @@ public class NPC : MonoBehaviour
     private void Awake()
     {
         speechObjects = GameObject.FindGameObjectsWithTag("Speech");
+
     }
     // Start is called before the first frame update
     void Start()
     {
        
         HideSpeech();
+
+        interactKey = ControlsManager.CM.interact;
     }
 
     // Update is called once per frame

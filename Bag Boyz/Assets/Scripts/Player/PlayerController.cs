@@ -4,26 +4,38 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     public Animator anim;
     public Rigidbody2D rb;
 
-    public float speed = 0.5f; //can adjust Player Speed in Unity inspector
-    public float standardSpeed;
+
+    private float speed = 6.0f; //can adjust Player Speed in Unity inspector
+    private float defaultSpeed;
     public float interactionTimer = 1.0f; //Adjust player interaction speed
     public bool eightDirections = false; //can turn on and off eightDirections in Unity inspector
     public bool collectingItem = false;
     public bool canMove = true;
 
+
     private Vector2 movement;
     private bool facingLeft = true;
 
+    private KeyCode moveUp;
+    private KeyCode moveDown;
     private KeyCode moveLeft;
+    private KeyCode moveRight;
+    private KeyCode interact;
+
 
     private void Awake()
     {
-        standardSpeed = speed;
+        defaultSpeed = speed;
 
-        
+        moveUp = ControlsManager.CM.up;
+        moveDown = ControlsManager.CM.down;
+        moveLeft = ControlsManager.CM.left;
+        moveRight = ControlsManager.CM.right;
+        interact = ControlsManager.CM.interact;
     }
 
     // Start is called before the first frame update
@@ -41,7 +53,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        moveLeft = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "A"));
+        
+
 
         //Toggle 4D / 8D Movement by Pressing 1
         if (Input.GetKey("1"))
@@ -60,7 +73,7 @@ public class PlayerController : MonoBehaviour
                 if (!eightDirections)
                 {
                     //If the D key is pressed
-                    if (Input.GetKey(KeyCode.D))
+                    if (Input.GetKey(moveRight))
                     {
                         //Remove any excess animations
                         TurnOffAnimations();
@@ -101,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
 
                     //If the S key is pressed
-                    else if (Input.GetKey(KeyCode.S))
+                    else if (Input.GetKey(moveDown))
                     {
                         //Remove any excess animations
                         TurnOffAnimations();
@@ -126,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
 
                     //If the W key is pressed
-                    else if (Input.GetKey(KeyCode.W))
+                    else if (Input.GetKey(moveUp))
                     {
                         //Remove any excess animations
                         TurnOffAnimations();
@@ -151,7 +164,7 @@ public class PlayerController : MonoBehaviour
 
 
                     //If none of the keys are being pressed
-                    else if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+                    else if (!Input.GetKey(moveUp) && !Input.GetKey(moveDown) && !Input.GetKey(moveLeft) && !Input.GetKey(moveRight))
                     {
                         //Remove any excess animations
                         TurnOffAnimations();
@@ -323,9 +336,15 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void SetPlayerSpeed(float speedMultiplier)
+    public void SetPlayerSpeed(float newSpeed)
     {
-        speed = speed * speedMultiplier;
+        speed = newSpeed;
+    }
+
+
+    public float GetDefaultSpeed()
+    {
+        return defaultSpeed;
     }
 
 }

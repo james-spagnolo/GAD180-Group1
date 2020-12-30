@@ -13,12 +13,16 @@ public class Checkout : MonoBehaviour
     public DialogueTrigger speechTrigger;
     public Text speechText;
 
+    public GameObject[] speechObjects;
+
+
+
     private GameObject thisCheckout;
     private PlayerController player;
 
-    [SerializeField] KeyCode interactKey = KeyCode.E;
 
-    public GameObject[] speechObjects;
+    private KeyCode interactKey;
+
 
     private bool isInRange;
     private bool triggeredDialogue = false;
@@ -37,6 +41,8 @@ public class Checkout : MonoBehaviour
         //thisCheckout.transform.gameObject.SetActive(false);
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        interactKey = ControlsManager.CM.interact;
     }
 
 

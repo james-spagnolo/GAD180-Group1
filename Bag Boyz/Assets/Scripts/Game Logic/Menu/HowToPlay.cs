@@ -19,7 +19,7 @@ public class HowToPlay : MonoBehaviour
     {
         currentTutorial = 0;
 
-        tutorialImage = this.GetComponent<Image>();
+        tutorialImage = transform.Find("HowToPlayImage").GetComponent<Image>();
         tutorialImage.sprite = tutorialSprites[currentTutorial];
 
         nextButton = transform.Find("NextImageButton");

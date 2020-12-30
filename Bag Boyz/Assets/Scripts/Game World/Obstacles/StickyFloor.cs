@@ -14,12 +14,14 @@ public class StickyFloor : MonoBehaviour
 
 
     //Modifies player speed when sticky
-    public float stickySpeed = 0.5f;
+    private float stickySpeed;
 
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        stickySpeed = player.GetDefaultSpeed() / 2;
     }
 
 
@@ -51,7 +53,7 @@ public class StickyFloor : MonoBehaviour
         {
             playerSticky = false;
 
-            player.SetPlayerSpeed(1 / stickySpeed);
+            player.SetPlayerSpeed(player.GetDefaultSpeed());
         }
         
     }

@@ -19,25 +19,8 @@ public class GameLogic : MonoBehaviour
 
     private GameObject[] shoppingList;
 
-    /*
-    // Set 5 items in Unity Inspector
-    public GameObject itemOne;
-    public GameObject itemTwo;
-    public GameObject itemThree;
-    public GameObject itemFour;
-    public GameObject itemFive;
-    */
-
     public List<GameObject> randomItems = new List<GameObject>();
 
-    /*
-    //Randomly Set 5 items
-    public GameObject randomItemOne;
-    public GameObject randomItemTwo;
-    public GameObject randomItemThree;
-    public GameObject randomItemFour;
-    public GameObject randomItemFive;
-    */
 
     private AudioController audioController;
 
@@ -94,25 +77,6 @@ public class GameLogic : MonoBehaviour
 
         //Make sure all items are disabled by default
         DisableItems();
-
-        /*
-        //Find the InteractionCircles attached to the 5 items
-        itemOne.transform.GetChild(0).gameObject.SetActive(true);
-        itemTwo.transform.GetChild(0).gameObject.SetActive(true);
-        itemThree.transform.GetChild(0).gameObject.SetActive(true);
-        itemFour.transform.GetChild(0).gameObject.SetActive(true);
-        itemFive.transform.GetChild(0).gameObject.SetActive(true);
-
-        //Find the Names of the 5 items
-        itemOneName = itemOne.name;
-        itemTwoName = itemTwo.name;
-        itemThreeName = itemThree.name;
-        itemFourName = itemFour.name;
-        itemFiveName = itemFive.name;
-
-        //Display Items needed to the Shopping List
-        shoppingText.text = itemOneName + "\n" + itemTwoName + "\n" + itemThreeName + "\n" + itemFourName + "\n" + itemFiveName;
-        */
     }
 
     private void Start()
@@ -183,14 +147,11 @@ public class GameLogic : MonoBehaviour
         for (int item = 0; item < itemsToCollect; item++)
         {
 
-
             //Pick a random item from the grocery list
             GameObject collectionItem = itemPool[Random.Range(0, itemPool.Count)];
 
             //Get that items name
             string itemName = collectionItem.transform.GetChild(0).GetComponent<Interactable>().itemName;
-
-            //Debug.Log("itemName: " + itemName);
             
             
             randomItems.Add(collectionItem); //Add the item to randomItems
@@ -204,30 +165,7 @@ public class GameLogic : MonoBehaviour
 
             collectionItem.transform.GetChild(0).gameObject.SetActive(true); //Sets this object to be interactable
 
-            
-
         }
-
-        /*
-        randomItemOne = itemPool[Random.Range(0, itemPool.Count)];
-        itemPool.Remove(randomItemOne);
-        randomItemTwo = itemPool[Random.Range(0, itemPool.Count)];
-        itemPool.Remove(randomItemTwo);
-        randomItemThree = itemPool[Random.Range(0, itemPool.Count)];
-        itemPool.Remove(randomItemThree);
-        randomItemFour = itemPool[Random.Range(0, itemPool.Count)];
-        itemPool.Remove(randomItemFour);
-        randomItemFive = itemPool[Random.Range(0, itemPool.Count)];
-        itemPool.Remove(randomItemFive);
-
-        //Activate Interaction for 5 items
-        randomItemOne.transform.GetChild(0).gameObject.SetActive(true);
-        randomItemTwo.transform.GetChild(0).gameObject.SetActive(true);
-        randomItemThree.transform.GetChild(0).gameObject.SetActive(true);
-        randomItemFour.transform.GetChild(0).gameObject.SetActive(true);
-        randomItemFive.transform.GetChild(0).gameObject.SetActive(true);
-
-        */
 
         switch (itemNames.Count)
         {
@@ -260,13 +198,7 @@ public class GameLogic : MonoBehaviour
                 break;
             default: break;
         }
-        /*
-        itemOneName = itemNames[0];
-        itemTwoName = itemNames[1];
-        itemThreeName = itemNames[2];
-        itemFourName = itemNames[3];
-        itemFiveName = itemNames[4];
-        */
+        
 
         randomItemsList = itemOneName + "\n" + itemTwoName + "\n" + itemThreeName + "\n" + itemFourName + "\n" + itemFiveName;
 
