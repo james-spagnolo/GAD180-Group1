@@ -62,20 +62,20 @@ public class HowToPlay : MonoBehaviour
 
         if (currentTutorial == 0)
         {
-            previousButton.gameObject.SetActive(false);
+            previousButton.GetComponent<Button>().interactable = false;
         }
         else
         {
-            previousButton.gameObject.SetActive(true);
+            previousButton.GetComponent<Button>().interactable = true;
         }
 
         if (currentTutorial == (tutorialSprites.Length - 1))
         {
-            nextButton.gameObject.SetActive(false);
+            nextButton.GetComponent<Button>().interactable = false;
         }
         else
         {
-            nextButton.gameObject.SetActive(true);
+            nextButton.GetComponent<Button>().interactable = true;
         }
     }
 }
